@@ -11,6 +11,7 @@ import bora_vip from './assets/imagenes/portadas/bora-vip.webp'
 import mucura from './assets/imagenes/portadas/mucura.webp'
 import pao_pao from './assets/imagenes/portadas/pao-pao.webp'
 import ancestral from './assets/imagenes/portadas/ancestral.webp'
+import bahia from './assets/imagenes/portadas/bahia.webp'
 import tour_isla from './assets/imagenes/tours/3-islas.webp'
 import tour_volcan from './assets/imagenes/tours/volcan.webp'
 import tour_chiva from './assets/imagenes/tours/chiva.webp'
@@ -19,14 +20,24 @@ import tour_bora from './assets/imagenes/tours/bora.webp'
 import tour_pao from './assets/imagenes/tours/pao-pao.webp'
 import tour_ancestral from './assets/imagenes/tours/ancestral.webp'
 import tour_mucura from './assets/imagenes/tours/mucura.webp'
+import tour_bahia from './assets/imagenes/tours/bahia.webp'
 import tiktok from './assets/imagenes/iconos/tik-tok.webp'
 import facebook from './assets/imagenes/iconos/facebook.webp'
 import WhatsApp from './assets/imagenes/iconos/whatsapp.webp'
 import Instagram from './assets/imagenes/iconos/instagram.webp'
 
 
-// --- 1. Importa tus flyers (asegúrate de que los nombres coincidan con tus archivos) ---
+const TOP=[
+  {src: isla, nombre:'Tour 3 Islas', descripcion: 'Vive un día inolvidable visitando tres destinos premium en un solo tour con guía bilingüe y almuerzo incluido.', precio:'$510.000', fullFlyer: tour_isla },
+  {src: bahia, nombre:'Tour Bahia', descripcion: 'Disfruta un recorrido inolvidable por la bahía de Cartagena con atardeceres mágicos, música y la mejor vista del mar Caribe.', precio:'$150.000', fullFlyer: tour_bahia },
+  {src: volcan, nombre:'Tour Volcan ', descripcion: 'Disfruta la tranquilidad de sumergirte en este increíble spa natural de lodo con propiedades medicinales.', precio:'$120.000', fullFlyer: tour_volcan },
+  {src: chiva, nombre:'Chiva Rumbera', descripcion: 'Súbete a la fiesta sobre ruedas con música en vivo y ambiente rumbero por las calles de Cartagena.', precio:'$55.000', fullFlyer: tour_chiva },
+  {src: pao_pao, nombre:'Tour a Pao Pao', descripcion: 'Hotel y restaurante con piscina de agua dulce, actividades diarias de bienestar y snorkel guiado incluido.', precio:'$390.000', fullFlyer: tour_pao },
+  {src: mucura, nombre:'Tour Isla Múcura', descripcion: 'Escápate a aguas cristalinas con almuerzo premium caribeño y acceso completo a zonas sociales y de juegos.', precio:'$420.000', fullFlyer: tour_mucura },
+]
 
+
+// --- 1. Importa tus flyers (asegúrate de que los nombres coincidan con tus archivos) ---
 const toursData = [
 {
     id: 1,
@@ -128,7 +139,7 @@ function App() {
         <nav className='hidden md:flex gap-8 font-bold text-[#123499] uppercase text-sm'>
           <button onClick={() => scrollTo('sobre-nosotros')} className="hover:text-[#C5A059] transition-colors">Quienes somos</button>
           <button onClick={() => scrollTo('tures')} className="hover:text-[#C5A059] transition-colors">Tures</button>
-          <button onClick={() => scrollTo('contacto')} className="hover:text-[#C5A059] transition-colors">Contacto</button>
+          <button onClick={() => scrollTo('redes')} className="hover:text-[#C5A059] transition-colors">Redes y Contacto</button>
         </nav>
 
         {/* Mobile Toggle */}
@@ -150,7 +161,7 @@ function App() {
   <div className="absolute top-full left-0 w-full bg-[#ece2c6] flex flex-col p-4 gap-4 md:hidden border-t border-gray-200 shadow-xl font-bold ">
     <button className="text-left" onClick={() => scrollTo('sobre-nosotros')}>Quienes somos</button>
     <button className="text-left" onClick={() => scrollTo('tures')}>Tures</button>
-    <button className="text-left" onClick={() => scrollTo('contacto')}>Contacto</button>
+    <button className="text-left" onClick={() => scrollTo('redes')}>Redes y Contacto</button>
   </div>
 )}
       </header>
@@ -184,22 +195,52 @@ function App() {
             </div>
           </div>
         </section>
-          {/* CONTACTO */}
-        <section id='contacto' className="py-20 flex justify-center p-4">
-          <div className='bg-[#123499] text-white rounded-3xl shadow-2xl p-8 xl:w-2xl border-b-4 border-[#C5A059] text-center'>
-            <h2 className='font-bold text-3xl uppercase tracking-widest text-[#C5A059] mb-4'>Contacto</h2>
-            <p className='text-blue-100 mb-8'>¿Listo para la aventura? ¡Escríbenos ahora!</p>
-            <div className='flex flex-col md:flex-row justify-center gap-6'>
-              <a href="https://wa.me/573174849442" target="_blank" rel="noreferrer" className='flex items-center gap-3 bg-white/10 p-3 rounded-xl hover:bg-white/20'>
-                <img src={telefono} className='w-8' alt="" />
-                <span>+57 317 4849442</span>
-              </a>
-              <a href="mailto:hrtourscartagena@gmail.com" className='flex items-center gap-3 bg-white/10 p-3 rounded-xl hover:bg-white/20'>
-                <img src={correo} className='w-8' alt="" />
-                <span>Email</span>
-              </a>
-            </div>
-          </div>
+        <section>
+          <h1 className='text-2xl font-bold text-center text-[#123499]'>TOP 6 TURES</h1>
+          <div className='flex gap-5 overflow-x-auto py-5 px-2'>
+  {/*AQUI VA DONDE RENDERIZAN LOS TOP */}
+ {TOP.map((tour) => (
+
+  <div
+    key={tour.id}
+    className="relative min-w-[300px] sm:min-w-[297px] h-80 rounded-3xl bg-cover bg-center p-5 flex flex-col justify-end text-white shadow-xl overflow-hidden "
+    style={{
+      backgroundImage: `url(${tour.src})`
+    }}
+  >
+
+    
+    <div className="absolute top-4 right-4 bg-[#123499] border border-[#b38f4d] px-4 py-2 rounded-full shadow-lg z-10">
+      <p className="font-bold text-sm text-white">
+        {tour.precio}
+      </p>
+    </div>
+
+    {/* Contenido */}
+    
+
+      <h2 className="text-2xl font-bold">
+        {tour.nombre}
+      </h2>
+
+      <p className="text-sm mt-1 text-gray-100">
+        {tour.descripcion}
+      </p>
+
+      {/* Botones */}
+      
+
+        <button
+          onClick={() => setSelectedFlyer(tour.fullFlyer)}
+          className=" bg-[#C5A059] text-white font-bold py-3 rounded-xl "
+        >
+          Ver más
+        </button>
+
+  </div>
+
+))}
+</div>
         </section>
         {/* SECCIÓN DE TURES (GRID) */}
         <section id='tures' className='py-20 bg-gray-50'>
@@ -244,7 +285,7 @@ function App() {
         </div>
       )}
   {/* aqui comienza el footer, para que se dirijan a las redes sociales */}
-    <footer className='flex flex-col items-center bg-[#ece2c6] py-8 border-t border-[#C5A059]'>
+    <footer className='flex flex-col items-center bg-[#ece2c6] py-8 border-t border-[#C5A059]' id='redes'>
   {/* Título con el color dorado de la marca */}
   <h1 className='text-2xl text-center font-bold text-[#C5A059] mb-2'>
     Nuestras Redes
