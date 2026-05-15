@@ -36,7 +36,16 @@ const TOP=[
   {src: mucura, nombre:'Tour Isla Múcura', descripcion: 'Escápate a aguas cristalinas con almuerzo premium caribeño y acceso completo a zonas sociales y de juegos.', precio:'$420.000', fullFlyer: tour_mucura },
 ]
 
+// planes de islas
 
+// planes de playa
+
+// planes de pasantia
+
+// planes en la ciudad
+
+
+//planes en la bahia
 // --- 1. Importa tus flyers (asegúrate de que los nombres coincidan con tus archivos) ---
 const toursData = [
 {
@@ -85,33 +94,8 @@ const toursData = [
     miniImg: bora,
     fullFlyer: tour_bora
   },
-{
-    id: 6,
-    title: "Isla Múcura",
-    tag: "Plan Relax en el Paraíso",
-    price: "$420.000",
-    excerpt: "Escápate a aguas cristalinas con almuerzo premium caribeño y acceso completo a zonas sociales y de juegos.",
-    miniImg: mucura,
-   fullFlyer: tour_mucura
-  },
-  {
-    id: 7,
-    title: "Pao Pao Beach Club",
-    tag: "Wellness y Relax (+12 años)",
-    price: "$390.000",
-    excerpt: "Hotel y restaurante con piscina de agua dulce, actividades diarias de bienestar y snorkel guiado incluido.",
-    miniImg: pao_pao,
-    fullFlyer: tour_pao
-  },
-  {
-    id: 8,
-    title: "Ancestral Beach Club",
-    tag: "Lounge Club de Playa.",
-    price: "$190.000 adultos y $140 niños",
-    excerpt: "Experiencia premium de playa con tarifas especiales para agencias y ambiente lounge inigualable.",
-    miniImg: ancestral,
-    fullFlyer: tour_ancestral 
-  },
+
+
 ];
 
 export function Principal() {
@@ -136,9 +120,9 @@ export function Principal() {
         </div>
 
         {/* Desktop Menu */}
-        <nav className='hidden md:flex gap-8 font-bold text-[#123499] uppercase text-sm'>
+        <nav className='hidden md:flex gap-8 font-bold text-[#123499]  text-sm'>
           <Link to="/Nosotros" className="hover:text-[#C5A059] transition-colors">Quienes somos</Link>
-          <button onClick={() => scrollTo('tures')} className="hover:text-[#C5A059] transition-colors">Tures</button>
+          <button onClick={() => scrollTo('tures')} className="hover:text-[#C5A059] transition-colors">Nuestros destinos</button>
           <button onClick={() => scrollTo('redes')} className="hover:text-[#C5A059] transition-colors">Redes y Contacto</button>
         </nav>
 
@@ -160,7 +144,7 @@ export function Principal() {
 {isOpen && (
   <div className="absolute top-full left-0 w-full bg-[#ece2c6] flex flex-col p-4 gap-4 md:hidden border-t border-gray-200 shadow-xl font-bold ">
     <Link to="/Nosotros" className="hover:text-[#C5A059] transition-colors">Quienes somos</Link>
-    <button className="text-left" onClick={() => scrollTo('tures')}>Tures</button>
+    <button className="text-left" onClick={() => scrollTo('tures')}>Nuestros destinos</button>
     <button className="text-left" onClick={() => scrollTo('redes')}>Redes y Contacto</button>
   </div>
 )}
@@ -177,15 +161,15 @@ export function Principal() {
 
     
        
-        <section>
-          <h1 className='text-2xl font-bold text-center text-[#123499]'>TOP 6 TURES</h1>
+        <section className='pt-2'>
+          <h1 className='text-2xl font-bold text-center text-[#123499]'>Tours Más Reservados</h1>
           <div className='flex gap-5 overflow-x-auto py-5 px-2'>
   {/*AQUI VA DONDE RENDERIZAN LOS TOP */}
  {TOP.map((tour) => (
 
   <div
     key={tour.id}
-    className="relative min-w-[300px] sm:min-w-[297px] h-80 rounded-3xl bg-cover bg-center p-5 flex flex-col justify-end text-white shadow-xl overflow-hidden "
+    className="relative min-w-[300px]  sm:min-w-[297px] h-80 rounded-3xl bg-cover bg-center p-5 flex flex-col justify-end text-white shadow-xl overflow-hidden "
     style={{
       backgroundImage: `url(${tour.src})`
     }}
@@ -226,32 +210,117 @@ export function Principal() {
         </section>
         {/* SECCIÓN DE TURES (GRID) */}
         <section id='tures' className='py-20 bg-gray-50'>
-          <div className='container mx-auto px-4'>
-            <h2 className='text-3xl font-bold text-[#123499] text-center mb-10'>NUESTROS PLANES</h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-              {toursData.map((tour) => (
-                <div key={tour.id} className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 flex flex-col transform transition-all hover:scale-105">
-                  <div className="relative h-44">
-                    <img src={tour.miniImg} alt={tour.title} className="w-full h-full object-cover" />
-                    <div className="absolute top-3 right-3 bg-[#123499] text-white px-3 py-1 rounded-full text-xs font-bold border border-[#C5A059]">
-                      {tour.price}
-                    </div>
-                  </div>
-                  <div className="p-5 flex-grow">
-                    <span className="text-[#C5A059] text-xs font-bold uppercase tracking-widest">{tour.tag}</span>
-                    <h3 className="text-xl font-bold text-[#123499] mt-1 mb-2">{tour.title}</h3>
-                    <p className="text-gray-600 text-sm mb-5">{tour.excerpt}</p>
-                    <button 
-                      onClick={() => setSelectedFlyer(tour.fullFlyer)}
-                      className="w-full bg-[#C5A059] text-white font-bold py-3 rounded-xl hover:bg-[#b38f4d] transition-colors"
-                    >
-                      Ver Mas...
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <h2 className='text-3xl font-bold text-[#123499] text-center mb-10'>Nuestros Destinos</h2>
+         <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[250px] 
+  gap-3 md:gap-5
+">
+
+  {toursData.map((tour, index) => (
+
+    <div key={tour.id} className={`relative rounded-3xl overflow-hidden group cursor-pointer
+
+        ${index === 0 ? "col-span-2 row-span-2 md:row-span-3"  : ""}
+        ${index === 2  ? "md:col-span-1 md:row-span-3" : "" }
+      `}
+    >
+
+      {/* Imagen */}
+      <img
+        src={tour.miniImg}
+        alt={tour.title}
+        className="
+          w-full h-full object-cover
+          group-hover:scale-110
+          transition duration-700
+        "
+      />
+
+      {/* Overlay elegante */}
+     
+
+      {/* Precio */}
+      <div className="
+        absolute top-3 right-3
+        bg-[#123499]
+        border border-[#C5A059]
+        text-white
+        px-3 py-1
+        rounded-full
+        text-[10px] md:text-xs
+        font-bold
+        z-10
+        shadow-lg
+      ">
+        {tour.price}
+      </div>
+
+      {/* Contenido */}
+      <div className="
+        absolute bottom-0
+        p-3 md:p-5
+        text-white z-10
+      ">
+      {(index === 0 || window.innerWidth >= 768) && (
+          <p className="
+          text-[9px] md:text-xs
+          uppercase
+          tracking-widest
+          text-[#C5A059]
+          font-bold
+          ">
+             {tour.tag}
+          </p>
+        )}
+      
+
+        <h3 className={`
+          font-black leading-tight mt-1
+
+          ${index === 0
+            ? "text-2xl md:text-4xl"
+            : "text-lg md:text-2xl"
+          }
+        `}>
+          {tour.title}
+        </h3>
+
+        {/* SOLO algunas cards muestran descripción */}
+        {(index === 0 || window.innerWidth >= 768) && (
+          <p className="
+            text-xs md:text-sm
+            text-gray-200
+            mt-2
+            line-clamp-2
+          ">
+            {tour.excerpt}
+          </p>
+        )}
+
+        <button
+          onClick={() => setSelectedFlyer(tour.fullFlyer)}
+          className="
+            mt-3 md:mt-4
+            bg-white text-black
+            px-4 md:px-5
+            py-2
+            rounded-full
+            text-sm
+            font-bold
+            hover:bg-[#C5A059]
+            hover:text-white
+            transition
+          "
+        >
+          Ver más
+        </button>
+
+      </div>
+
+    </div>
+
+  ))}
+
+</div>
         </section>
 
       
