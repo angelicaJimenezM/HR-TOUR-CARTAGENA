@@ -1,6 +1,6 @@
+import { Link } from "react-router-dom";
 import jefe from '../assets/imagenes/jefe.webp'
 import logo from '../assets/imagenes/logo.webp'
-import { Link } from "react-router-dom";
 import videoNosotros from "../assets/videos/nosotros.mp4";
 
 export function Nosotros (){

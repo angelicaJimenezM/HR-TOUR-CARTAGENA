@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from "framer-motion";
 import logo from '../assets/imagenes/logo.webp'
 import reloj from '../assets/imagenes/reloj.webp'
 import telefono from '../assets/imagenes/iconos/telefono.webp'
@@ -111,6 +112,16 @@ export function Principal() {
     }
   };
 
+const [current, setCurrent] = useState(0);
+
+const nextSlide = () => {
+  setCurrent((prev) => (prev + 1) % TOP.length);
+};
+
+const prevSlide = () => {
+  setCurrent((prev) => (prev - 1 + TOP.length) % TOP.length);
+};
+
   return (
     <div className="bg-white min-h-screen">
       {/* HEADER RESPONSIVO */}
@@ -159,55 +170,142 @@ export function Principal() {
           </div>
         </div>
 
-    
+      {/*seccion de top */}
        
         <section className='pt-2'>
           <h1 className='text-2xl font-bold text-center text-[#123499]'>Tours Más Reservados</h1>
-          <div className='flex gap-5 overflow-x-auto py-5 px-2'>
+          <div className="relative w-full h-[450px] flex items-center justify-center overflow-hidden">
+
+
   {/*AQUI VA DONDE RENDERIZAN LOS TOP */}
- {TOP.map((tour) => (
+{TOP.map((tour, index) => {
 
-  <div
-    key={tour.id}
-    className="relative min-w-[300px]  sm:min-w-[297px] h-80 rounded-3xl bg-cover bg-center p-5 flex flex-col justify-end text-white shadow-xl overflow-hidden "
-    style={{
-      backgroundImage: `url(${tour.src})`
-    }}
-  >
+  const position =
+    index === current
+      ? "center"
+      : index === (current - 1 + TOP.length) % TOP.length
+      ? "left"
+      : index === (current + 1) % TOP.length
+      ? "right"
+      : "hidden";
 
-    
-    <div className="absolute top-4 right-4 bg-[#123499] border border-[#b38f4d] px-4 py-2 rounded-full shadow-lg z-10">
-      <p className="font-bold text-sm text-white ">
-        {tour.precio}
-      </p>
-    </div>
+  return (
 
-    {/* Contenido */}
-    
+    <motion.div
+      key={tour.id}
 
-      <h2 className="text-2xl font-bold">
-        {tour.nombre}
-      </h2>
+      drag={position === "center" ? "x" : false}
+      dragConstraints={{ left: 0, right: 0 }}
 
-      <p className="text-sm mt-1 text-gray-100">
-        {tour.descripcion}
-      </p>
+      onDragEnd={(e, info) => {
 
-      {/* Botones */}
-      
+        if (info.offset.x < -100) {
+          nextSlide();
+        }
+
+        if (info.offset.x > 100) {
+          prevSlide();
+        }
+
+      }}
+
+      animate={{
+
+        x:
+          position === "center"
+            ? 0
+            : position === "left"
+            ? -240
+            : position === "right"
+            ? 270
+            : 0,
+
+        scale:
+          position === "center"
+            ? 1
+            : 0.9,
+
+        opacity:
+          position === "hidden"
+            ? 0
+            : 1,
+
+        rotateY:
+          position === "left"
+            ? 21
+            : position === "right"
+            ? -19
+            : 0,
+
+        zIndex:
+          position === "center"
+            ? 20
+            : 10,
+
+      }}
+
+      transition={{
+        duration: 0.6
+      }}
+
+      className="
+        absolute
+        w-[320px]
+        h-[380px]
+        rounded-3xl
+        bg-cover
+        bg-center
+        p-5
+        flex
+        flex-col
+        justify-end
+        text-white
+        shadow-2xl
+        overflow-hidden
+      "
+
+      style={{
+        backgroundImage: `url(${tour.src})`
+      }}
+    >
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/30"></div>
+
+      {/* Precio */}
+      <div className="absolute top-4 right-4 bg-[#123499] border border-[#b38f4d] px-4 py-2 rounded-full shadow-lg z-10">
+        <p className="font-bold text-sm text-white">
+          {tour.precio}
+        </p>
+      </div>
+
+      {/* Contenido */}
+      <div className="relative z-10">
+
+        <h2 className="text-3xl font-bold">
+          {tour.nombre}
+        </h2>
+
+        <p className="text-sm mt-2 text-gray-100 line-clamp-3">
+          {tour.descripcion}
+        </p>
 
         <button
           onClick={() => setSelectedFlyer(tour.fullFlyer)}
-          className=" bg-[#C5A059] text-white font-bold py-3 rounded-xl "
+          className="mt-4 bg-[#C5A059] text-white font-bold py-3 px-6 rounded-xl"
         >
           Ver más
         </button>
 
-  </div>
+      </div>
 
-))}
+    </motion.div>
+
+  );
+
+})}
 </div>
-        </section>
+</section>
         {/* SECCIÓN DE TURES (GRID) */}
         <section id='tures' className='py-20 bg-gray-50'>
           <h2 className='text-3xl font-bold text-[#123499] text-center mb-10'>Nuestros Destinos</h2>
@@ -339,9 +437,9 @@ export function Principal() {
     <footer className='flex flex-col items-center bg-[#ece2c6] py-8 border-t border-[#C5A059]' id='redes'>
   {/* Título con el color dorado de la marca */}
   <h1 className='text-2xl text-center font-bold text-[#C5A059] mb-2'>
-    Nuestras Redes
+    Nuestras Redes y Contacto
   </h1>
-  <p className='text-gray-700 mb-6'>Síguenos en nuestras redes sociales</p>
+  <p className='text-gray-700 mb-6'>Síguenos en nuestras redes sociales y Contactanos</p>
 
   {/* Contenedor de iconos alineado */}
   <div className='flex flex-wrap justify-center gap-8'>
