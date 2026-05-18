@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { motion } from "framer-motion";
+import { useState, useEffect } from 'react'
+import { motion } from "motion/react"
 import logo from '../assets/imagenes/logo.webp'
 import reloj from '../assets/imagenes/reloj.webp'
 import telefono from '../assets/imagenes/iconos/telefono.webp'
@@ -27,6 +27,22 @@ import facebook from '../assets/imagenes/iconos/facebook.webp'
 import WhatsApp from '../assets/imagenes/iconos/whatsapp.webp'
 import Instagram from '../assets/imagenes/iconos/instagram.webp'
 import { Link } from "react-router-dom";
+
+
+const HERO =[
+  {
+    src: reloj, frase: 'VIVE CARTAGENA CON EXPERTOS'
+  },
+  {
+    src: mucura, frase: 'DISFRUTA SIN PREOCUPACIONES'
+  },
+  {
+    src: pao_pao, frase: 'CONVIERTE VIAJES EN RECUERDOS UNICOS'
+  },
+  {
+    src: bahia, frase: 'CONFIA EN HR TOURS CARTAGENA'
+  },
+]
 
 const TOP=[
   {src: isla, nombre:'Tour 3 Islas', descripcion: 'Vive un día inolvidable visitando tres destinos premium en un solo tour con guía bilingüe y almuerzo incluido.', precio:'$510.000', fullFlyer: tour_isla },
@@ -112,15 +128,26 @@ export function Principal() {
     }
   };
 
-const [current, setCurrent] = useState(0);
+const [heroCurrent, setHeroCurrent] = useState(0);
+const [topCurrent, setTopCurrent] = useState(0);
 
-const nextSlide = () => {
-  setCurrent((prev) => (prev + 1) % TOP.length);
+const nextTopSlide = () => {
+  setTopCurrent((prev) => (prev + 1) % TOP.length);
 };
 
-const prevSlide = () => {
-  setCurrent((prev) => (prev - 1 + TOP.length) % TOP.length);
+const prevTopSlide = () => {
+  setTopCurrent((prev) => (prev - 1 + TOP.length) % TOP.length);
 };
+
+useEffect(() => {
+
+  const interval = setInterval(() => {
+    setHeroCurrent((prev) => (prev + 1) % HERO.length);
+  }, 4000);
+
+  return () => clearInterval(interval);
+
+}, []);
 
   return (
     <div className="bg-white min-h-screen">
@@ -162,13 +189,76 @@ const prevSlide = () => {
       </header>
 
       <main className='pt-16'>
-        {/* HERO */}
-        <div id='inicio' className='relative'>
-          <img src={reloj} alt="Cartagena Reloj" className='w-screen h-[80vh] object-coverS'/>
-          <div className='absolute inset-0 bg-black/30 flex items-center justify-center'>
-            <h2 className='text-white text-4xl md:text-6xl font-black text-center px-4'>VIVE CARTAGENA <br/><span className='text-[#C5A059]'>CON EXPERTOS</span></h2>
-          </div>
-        </div>
+
+       
+ {/* HERO CAROUSEL */}
+<section className="relative w-full h-[90vh] bg-black overflow-hidden flex items-center">
+  {/* CAPA 1: IMAGEN DE FONDO (Destino Activo) */}
+  {HERO.map((tour, index) => (
+    index === heroCurrent && (
+      <motion.div
+        key={`bg-${index}`}
+        initial={{ opacity: 0, scale: 1.1 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.8 }}
+        className="absolute inset-0 w-full h-full"
+      >
+        <img src={tour.src} alt="" className="w-full h-full object-cover" />
+        {/* Gradiente oscuro para que el texto resalte */}
+        <div className="absolute inset-0 bg-gradient-to-t  from-black/70 via-black/30 to-transparent" />
+      </motion.div>
+    )
+  ))}
+
+  {/* CAPA 2: TEXTO PRINCIPAL (Alineado a la izquierda) */}
+  <div className="absolute left-8 md:left-20  md:bottom-24 text-white z-10 max-w-xl">
+    <motion.h1 
+      key={heroCurrent}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className="text-4xl md:text-7xl font-bold"
+    >
+      {HERO[heroCurrent].frase}
+    </motion.h1>
+    
+  </div>
+
+  {/* CAPA 3: CARRUSEL DE TARJETAS FLOTANTES (Esquina inferior derecha) */}
+  <div className="absolute bottom-12 right-4 md:right-12 flex gap-4 z-20 overflow-visible">
+    {HERO.map((tour, index) => {
+      // Calculamos si la tarjeta está en cola para aparecer a la derecha
+      const isNext = index > heroCurrent && index <= heroCurrent + 3;
+      // Si estamos al final de la lista, hacemos el loop para agarrar los primeros elementos
+      const isLoopNext = index < (heroCurrent + 4) % HERO.length && heroCurrent + 3 >= HERO.length && index !== heroCurrent;
+
+      if (isNext || isLoopNext) {
+        return (
+          <motion.div
+            key={`thumb-${index}`}
+            layout
+            initial={{ opacity: 0, scale: 0.8, x: 100 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="w-28 sm:w-36 h-40 sm:h-52 rounded-2xl overflow-hidden shadow-2xl border border-white/20 relative cursor-pointer flex-shrink-0 group"
+            onClick={() => setHeroCurrent(index)} // Te permite saltar al destino al hacer clic
+          >
+            <img src={tour.src} alt="" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+            <span className="absolute bottom-3 left-3 text-white font-bold text-xs sm:text-sm uppercase tracking-wider leading-tight">
+              {tour.frase.split(" ")[0]}... {/* Muestra solo la primera palabra para no saturar la miniatura */}
+            </span>
+          </motion.div>
+        );
+      }
+     
+    })}
+  </div>
+</section>
+       
+
 
       {/*seccion de top */}
        
@@ -180,15 +270,14 @@ const prevSlide = () => {
   {/*AQUI VA DONDE RENDERIZAN LOS TOP */}
 {TOP.map((tour, index) => {
 
-  const position =
-    index === current
-      ? "center"
-      : index === (current - 1 + TOP.length) % TOP.length
-      ? "left"
-      : index === (current + 1) % TOP.length
-      ? "right"
-      : "hidden";
-
+const position =
+  index === topCurrent
+    ? "center"
+    : index === (topCurrent - 1 + TOP.length) % TOP.length
+    ? "left"
+    : index === (topCurrent + 1) % TOP.length
+    ? "right"
+    : "hidden";
   return (
 
     <motion.div
@@ -200,11 +289,11 @@ const prevSlide = () => {
       onDragEnd={(e, info) => {
 
         if (info.offset.x < -100) {
-          nextSlide();
+          nextTopSlide();
         }
 
         if (info.offset.x > 100) {
-          prevSlide();
+          prevTopSlide();
         }
 
       }}
@@ -248,21 +337,7 @@ const prevSlide = () => {
         duration: 0.6
       }}
 
-      className="
-        absolute
-        w-[320px]
-        h-[380px]
-        rounded-3xl
-        bg-cover
-        bg-center
-        p-5
-        flex
-        flex-col
-        justify-end
-        text-white
-        shadow-2xl
-        overflow-hidden
-      "
+      className="absolute w-[320px] sm:w-2xl h-[380px] sm:h-11/12 rounded-3xl bg-cover bg-center p-5 flex flex-col justify-end text-white hadow-2xl overflow-hidden"
 
       style={{
         backgroundImage: `url(${tour.src})`
