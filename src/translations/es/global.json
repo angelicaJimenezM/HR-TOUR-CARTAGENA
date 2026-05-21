@@ -1,0 +1,53 @@
+{
+  "header": {
+    
+      "about": "Quines Somos",
+      "contact": "Redes y Contacto",
+      "destinations": "Nuestros Destinos"
+    },
+
+
+
+    "hero": {
+    "experto": "VIVE CARTAGENA CON EXPERTOS",
+    "relax": "DISFRUTA SIN PREOCUPACIONES",
+    "recuerdos": "CONVIERTE VIAJES EN RECUERDOS UNICOS",
+    "confianza": "CONFIA EN HR TOURS CARTAGENA"
+  },
+
+  
+  "footer": {
+    "title": "Nuestras Redes y Contacto",
+    "subtitle": "Síguenos en nuestras redes sociales y Contactanos",
+    "rights-reserved": "© 2026 HR Tours Cartagena. Todos los derechos reservados."
+  },
+
+
+  "aboutus": {
+    "subtitle": "Pasión por Cartagena",
+    "description1": "En HR Tours Cartagena, diseñamos recuerdos que perduran. Combinamos la calidez local con la eficiencia técnica para que disfrutes sin preocupaciones.",
+    "features": {
+      "tours": "Tours Exclusivos",
+      "quality": "Calidad Recomendada"
+    }
+  },
+
+
+   "top": {
+   "title": "Tours Más Reservados",
+       "buttom": "Ver mas...",
+    "chiva": {
+    "nombre": "Chiva Rumbera",
+    "descripcion": "Súbete a la fiesta sobre ruedas con música en vivo y ambiente rumbero por las calles de Cartagena."
+  },
+  "pao": {
+    "nombre": "Tour a Pao Pao",
+    "descripcion": "Hotel y restaurante con piscina de agua dulce, actividades diarias de bienestar y snorkel guiado incluido."
+  },
+  "mucura": {
+    "nombre": "Tour Isla Múcura",
+    "descripcion": "Escápate a aguas cristalinas con almuerzo premium caribeño y acceso completo a zonas sociales y de juegos."
+  }
+}
+
+} 

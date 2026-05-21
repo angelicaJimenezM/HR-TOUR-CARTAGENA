@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from "motion/react"
-import logo from '../assets/imagenes/logo.webp'
-import reloj from '../assets/imagenes/reloj.webp'
+
 import telefono from '../assets/imagenes/iconos/telefono.webp'
 import correo from '../assets/imagenes/iconos/correo.webp'
 import isla from '../assets/imagenes/portadas/3-islas.webp'
@@ -27,32 +26,29 @@ import facebook from '../assets/imagenes/iconos/facebook.webp'
 import WhatsApp from '../assets/imagenes/iconos/whatsapp.webp'
 import Instagram from '../assets/imagenes/iconos/instagram.webp'
 import { Link } from "react-router-dom";
-
-
-const HERO =[
+import { Header } from '../components/Header.jsx'
+import { Hero } from '../components/Hero.jsx'
+import {useTranslation} from "react-i18next";
+const TOP = [
   {
-    src: reloj, frase: 'VIVE CARTAGENA CON EXPERTOS'
+    key: "chiva",
+    src: chiva,
+    precio: "$55.000 COP",
+    fullFlyer: tour_chiva
   },
   {
-    src: mucura, frase: 'DISFRUTA SIN PREOCUPACIONES'
+    key: "pao",
+    src: pao_pao,
+    precio: "$390.000 COP",
+    fullFlyer: tour_pao
   },
   {
-    src: pao_pao, frase: 'CONVIERTE VIAJES EN RECUERDOS UNICOS'
-  },
-  {
-    src: bahia, frase: 'CONFIA EN HR TOURS CARTAGENA'
-  },
-]
-
-const TOP=[
-  {src: isla, nombre:'Tour 3 Islas', descripcion: 'Vive un día inolvidable visitando tres destinos premium en un solo tour con guía bilingüe y almuerzo incluido.', precio:'$510.000', fullFlyer: tour_isla },
-  {src: bahia, nombre:'Tour Bahia', descripcion: 'Disfruta un recorrido inolvidable por la bahía de Cartagena con atardeceres mágicos, música y la mejor vista del mar Caribe.', precio:'$150.000', fullFlyer: tour_bahia },
-  {src: volcan, nombre:'Tour Volcan ', descripcion: 'Disfruta la tranquilidad de sumergirte en este increíble spa natural de lodo con propiedades medicinales.', precio:'$120.000', fullFlyer: tour_volcan },
-  {src: chiva, nombre:'Chiva Rumbera', descripcion: 'Súbete a la fiesta sobre ruedas con música en vivo y ambiente rumbero por las calles de Cartagena.', precio:'$55.000', fullFlyer: tour_chiva },
-  {src: pao_pao, nombre:'Tour a Pao Pao', descripcion: 'Hotel y restaurante con piscina de agua dulce, actividades diarias de bienestar y snorkel guiado incluido.', precio:'$390.000', fullFlyer: tour_pao },
-  {src: mucura, nombre:'Tour Isla Múcura', descripcion: 'Escápate a aguas cristalinas con almuerzo premium caribeño y acceso completo a zonas sociales y de juegos.', precio:'$420.000', fullFlyer: tour_mucura },
-]
-
+    key: "mucura",
+    src: mucura,
+    precio: "$420.000 COP",
+    fullFlyer: tour_mucura
+  }
+];
 // planes de islas
 
 // planes de playa
@@ -69,7 +65,7 @@ const toursData = [
     id: 1,
     title: "Top 3 Islas",
     tag: "Bora Bora, Pao Pao e Isabela",
-    price: "$510.000",
+    price: "$510.000 COP",
     excerpt: "Vive un día inolvidable visitando tres destinos premium en un solo tour con guía bilingüe y almuerzo incluido.",
     miniImg: isla, // Usa tu variable de imagen correspondiente
     fullFlyer: tour_isla
@@ -79,7 +75,7 @@ const toursData = [
     id: 2,
     title: "Volcán del Totumo",
     tag: "Spa Natural y Relajación",
-    price: "$120.000", 
+    price: "$120.000 COP", 
     excerpt: "Disfruta la tranquilidad de sumergirte en este increíble spa natural de lodo con propiedades medicinales.",
     miniImg: volcan,
    fullFlyer: tour_volcan
@@ -88,7 +84,7 @@ const toursData = [
      id: 3,
     title: "Chiva Rumbera",
     tag: "Fiesta en la Ciudad Amurallada",
-    price: "$55.000", // Precio promedio base para este tour local
+    price: "$55.000 COP", // Precio promedio base para este tour local
     excerpt: "Súbete a la fiesta sobre ruedas con música en vivo y ambiente rumbero por las calles de Cartagena.",
     miniImg: chiva,
    fullFlyer: tour_chiva
@@ -97,7 +93,7 @@ const toursData = [
     id: 4,
     title: "Bora Bora Beach Club",
     tag: "Área VIP - Islas del Rosario",
-    price: "$490.000",
+    price: "$490.000 COP",
     excerpt: "Lujo y exclusividad con transporte en lancha rápida, coctel de bienvenida y acceso total a la zona VIP.",
     miniImg: bora,
     fullFlyer: tour_bora_vip
@@ -106,7 +102,7 @@ const toursData = [
     id: 5,
     title: "Bora Bora - Área Club",
     tag: "Playa y Diversión (+18)",
-    price: "$390.000",
+    price: "$390.000 COP",
     excerpt: "Acceso total al área club de Bora Bora. Incluye transporte ida y vuelta, cóctel de bienvenida y 5 opciones de almuerzo.",
     miniImg: bora,
     fullFlyer: tour_bora
@@ -116,19 +112,13 @@ const toursData = [
 ];
 
 export function Principal() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedFlyer, setSelectedFlyer] = useState(null);
+  
 
+const [t, i18n] = useTranslation("global")
   // Función para scroll suave
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
-    }
-  };
 
-const [heroCurrent, setHeroCurrent] = useState(0);
+const [selectedFlyer, setSelectedFlyer] = useState(null);
+
 const [topCurrent, setTopCurrent] = useState(0);
 
 const nextTopSlide = () => {
@@ -139,133 +129,27 @@ const prevTopSlide = () => {
   setTopCurrent((prev) => (prev - 1 + TOP.length) % TOP.length);
 };
 
-useEffect(() => {
 
-  const interval = setInterval(() => {
-    setHeroCurrent((prev) => (prev + 1) % HERO.length);
-  }, 4000);
-
-  return () => clearInterval(interval);
-
-}, []);
 
   return (
     <div className="bg-white min-h-screen">
-      {/* HEADER RESPONSIVO */}
-      <header className="fixed top-0 w-full flex bg-[#ece2c6] justify-between items-center px-6 py-2 z-50 shadow-md">
-        <div className='w-24 cursor-pointer' onClick={() => scrollTo('inicio')}>
-          <img src={logo} alt="Logo HR Tours" className='w-full'/>
-        </div>
-
-        {/* Desktop Menu */}
-        <nav className='hidden md:flex gap-8 font-bold text-[#123499]  text-sm'>
-          <Link to="/Nosotros" className="hover:text-[#C5A059] transition-colors">Quienes somos</Link>
-          <button onClick={() => scrollTo('tures')} className="hover:text-[#C5A059] transition-colors">Nuestros destinos</button>
-          <button onClick={() => scrollTo('redes')} className="hover:text-[#C5A059] transition-colors">Redes y Contacto</button>
-        </nav>
-
-        {/* Mobile Toggle */}
-       {/* 1. EL BOTÓN (Solo cambia el icono) */}
-<button className='md:hidden text-[#123499] transition-all duration-300' onClick={() => setIsOpen(!isOpen)}>
-  {isOpen ? (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-    </svg>
-  ) : (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-    </svg>
-  )}
-</button>
-
-{/* 2. EL MENÚ MÓVIL (Afuera del botón, pero controlado por isOpen) */}
-{isOpen && (
-  <div className="absolute top-full left-0 w-full bg-[#ece2c6] flex flex-col p-4 gap-4 md:hidden border-t border-gray-200 shadow-xl font-bold ">
-    <Link to="/Nosotros" className="hover:text-[#C5A059] transition-colors">Quienes somos</Link>
-    <button className="text-left" onClick={() => scrollTo('tures')}>Nuestros destinos</button>
-    <button className="text-left" onClick={() => scrollTo('redes')}>Redes y Contacto</button>
-  </div>
-)}
-      </header>
+      {/* componente Header*/}
+      <Header/>
 
       <main className='pt-16'>
 
-       
- {/* HERO CAROUSEL */}
-<section className="relative w-full h-[90vh] bg-black overflow-hidden flex items-center">
-  {/* CAPA 1: IMAGEN DE FONDO (Destino Activo) */}
-  {HERO.map((tour, index) => (
-    index === heroCurrent && (
-      <motion.div
-        key={`bg-${index}`}
-        initial={{ opacity: 0, scale: 1.1 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.8 }}
-        className="absolute inset-0 w-full h-full"
-      >
-        <img src={tour.src} alt="" className="w-full h-full object-cover" />
-        {/* Gradiente oscuro para que el texto resalte */}
-        <div className="absolute inset-0 bg-gradient-to-t  from-black/70 via-black/30 to-transparent" />
-      </motion.div>
-    )
-  ))}
+        {/* HERO CAROUSEL */}
+       <Hero />
 
-  {/* CAPA 2: TEXTO PRINCIPAL (Alineado a la izquierda) */}
-  <div className="absolute left-8 md:left-20  md:bottom-24 text-white z-10 max-w-xl">
-    <motion.h1 
-      key={heroCurrent}
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-      className="text-4xl md:text-7xl font-bold"
-    >
-      {HERO[heroCurrent].frase}
-    </motion.h1>
-    
-  </div>
-
-  {/* CAPA 3: CARRUSEL DE TARJETAS FLOTANTES (Esquina inferior derecha) */}
-  <div className="absolute bottom-12 right-4 md:right-12 flex gap-4 z-20 overflow-visible">
-    {HERO.map((tour, index) => {
-      // Calculamos si la tarjeta está en cola para aparecer a la derecha
-      const isNext = index > heroCurrent && index <= heroCurrent + 3;
-      // Si estamos al final de la lista, hacemos el loop para agarrar los primeros elementos
-      const isLoopNext = index < (heroCurrent + 4) % HERO.length && heroCurrent + 3 >= HERO.length && index !== heroCurrent;
-
-      if (isNext || isLoopNext) {
-        return (
-          <motion.div
-            key={`thumb-${index}`}
-            layout
-            initial={{ opacity: 0, scale: 0.8, x: 100 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="w-28 sm:w-36 h-40 sm:h-52 rounded-2xl overflow-hidden shadow-2xl border border-white/20 relative cursor-pointer flex-shrink-0 group"
-            onClick={() => setHeroCurrent(index)} // Te permite saltar al destino al hacer clic
-          >
-            <img src={tour.src} alt="" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-            <span className="absolute bottom-3 left-3 text-white font-bold text-xs sm:text-sm uppercase tracking-wider leading-tight">
-              {tour.frase.split(" ")[0]}... {/* Muestra solo la primera palabra para no saturar la miniatura */}
-            </span>
-          </motion.div>
-        );
-      }
-     
-    })}
-  </div>
-</section>
        
 
 
       {/*seccion de top */}
        
         <section className='pt-2'>
-          <h1 className='text-2xl font-bold text-center text-[#123499]'>Tours Más Reservados</h1>
+          <h1 className='text-2xl font-bold text-center text-[#123499]'>{t("top.title")}</h1>
           <div className="relative w-full h-[450px] flex items-center justify-center overflow-hidden">
-
+    
 
   {/*AQUI VA DONDE RENDERIZAN LOS TOP */}
 {TOP.map((tour, index) => {
@@ -358,18 +242,18 @@ const position =
       <div className="relative z-10">
 
         <h2 className="text-3xl font-bold">
-          {tour.nombre}
+            {t(`top.${tour.key}.nombre`)}
         </h2>
 
         <p className="text-sm mt-2 text-gray-100 line-clamp-3">
-          {tour.descripcion}
+           {t(`top.${tour.key}.descripcion`)}
         </p>
 
         <button
           onClick={() => setSelectedFlyer(tour.fullFlyer)}
           className="mt-4 bg-[#C5A059] text-white font-bold py-3 px-6 rounded-xl"
         >
-          Ver más
+            {t("top.buttom")}
         </button>
 
       </div>
@@ -383,7 +267,7 @@ const position =
 </section>
         {/* SECCIÓN DE TURES (GRID) */}
         <section id='tures' className='py-20 bg-gray-50'>
-          <h2 className='text-3xl font-bold text-[#123499] text-center mb-10'>Nuestros Destinos</h2>
+          <h2 className='text-3xl font-bold text-[#123499] text-center mb-10'>{t("header.destinations")}</h2>
          <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[250px] 
   gap-3 md:gap-5
 ">
@@ -484,7 +368,7 @@ const position =
             transition
           "
         >
-          Ver más
+          {t("top.buttom")}
         </button>
 
       </div>
@@ -512,9 +396,9 @@ const position =
     <footer className='flex flex-col items-center bg-[#ece2c6] py-8 border-t border-[#C5A059]' id='redes'>
   {/* Título con el color dorado de la marca */}
   <h1 className='text-2xl text-center font-bold text-[#C5A059] mb-2'>
-    Nuestras Redes y Contacto
+    {t("footer.title")}
   </h1>
-  <p className='text-gray-700 mb-6'>Síguenos en nuestras redes sociales y Contactanos</p>
+  <p className='text-gray-700 mb-6'>{t("footer.subtitle")}</p>
 
   {/* Contenedor de iconos alineado */}
   <div className='flex flex-wrap justify-center gap-8'>
@@ -541,7 +425,7 @@ const position =
 
   {/* Crédito al final */}
   <div className='mt-8 text-[10px] text-gray-500'>
-    © 2026 HR Tours Cartagena. Todos los derechos reservados.
+     {t("footer.rights-reserved")}
   </div>
 </footer>
     </div>
