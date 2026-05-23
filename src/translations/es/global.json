@@ -35,10 +35,10 @@
 
    "top": {
    "title": "Tours Más Reservados",
-       "buttom": "Ver mas...",
-    "chiva": {
-    "nombre": "Chiva Rumbera",
-    "descripcion": "Súbete a la fiesta sobre ruedas con música en vivo y ambiente rumbero por las calles de Cartagena."
+       "button": "Ver mas...",
+    "tres": {
+    "nombre": "tres islas",
+    "descripcion": "desconecta del estres y conecta con ell paraiso."
   },
   "pao": {
     "nombre": "Tour a Pao Pao",
@@ -48,6 +48,21 @@
     "nombre": "Tour Isla Múcura",
     "descripcion": "Escápate a aguas cristalinas con almuerzo premium caribeño y acceso completo a zonas sociales y de juegos."
   }
-}
+},
+
+"languages": {
+  
+    "language": "Idiomas"
+  },
+
+  "subtoures": {
+    "category" : "Categoria de toures",
+    "islass": "islas"
+  },
+  "islas": {
+    "title": "Categoria Islas",
+    "subtitle": "¿Listo para el viaje de tus sueños?",
+    "text": "Tu aventura caribeña empieza aquí. Descubre playas de ensueño, aguas cristalinas y el descanso que te mereces, reserva tu lugar en el paraíso hoy mismo"
+  }
 
 } 

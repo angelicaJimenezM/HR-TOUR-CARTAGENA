@@ -1,25 +1,23 @@
 import { useState, useEffect } from 'react'
-import { motion } from "motion/react"
-
+//import { motion } from "motion/react"
+import { motion } from "framer-motion"
 import telefono from '../assets/imagenes/iconos/telefono.webp'
 import correo from '../assets/imagenes/iconos/correo.webp'
 import isla from '../assets/imagenes/portadas/3-islas.webp'
-import chiva from '../assets/imagenes/portadas/chiva.webp'
+import palmas from '../assets/imagenes/portadas/islas/palmas.webp'
 import volcan from '../assets/imagenes/portadas/volcan.webp'
 import bora from '../assets/imagenes/portadas/bora-bora.webp'
-import bora_vip from '../assets/imagenes/portadas/bora-vip.webp'
-import mucura from '../assets/imagenes/portadas/mucura.webp'
+import rosario from '../assets/imagenes/portadas/islas/isla-rosario.webp'
+import mucura from '../assets/imagenes/portadas/islas/mucura.webp'
 import pao_pao from '../assets/imagenes/portadas/pao-pao.webp'
-import ancestral from '../assets/imagenes/portadas/ancestral.webp'
 import bahia from '../assets/imagenes/portadas/bahia.webp'
-import tour_isla from '../assets/imagenes/tours/3-islas.webp'
+import tour_isla from '../assets/imagenes/tours/islas/3-islas.webp'
 import tour_volcan from '../assets/imagenes/tours/volcan.webp'
-import tour_chiva from '../assets/imagenes/tours/chiva.webp'
+import tour_palmas from '../assets/imagenes/tours/islas/isla-palmas.webp'
 import tour_bora_vip from '../assets/imagenes/tours/borabora.webp'
 import tour_bora from '../assets/imagenes/tours/bora.webp'
 import tour_pao from '../assets/imagenes/tours/pao-pao.webp'
-import tour_ancestral from '../assets/imagenes/tours/ancestral.webp'
-import tour_mucura from '../assets/imagenes/tours/mucura.webp'
+import tour_mucura from '../assets/imagenes/tours/islas/isla-mucura.webp'
 import tour_bahia from '../assets/imagenes/tours/bahia.webp'
 import tiktok from '../assets/imagenes/iconos/tik-tok.webp'
 import facebook from '../assets/imagenes/iconos/facebook.webp'
@@ -29,12 +27,17 @@ import { Link } from "react-router-dom";
 import { Header } from '../components/Header.jsx'
 import { Hero } from '../components/Hero.jsx'
 import {useTranslation} from "react-i18next";
+import { Contacto } from '../components/Contacto.jsx'
+
+
+
 const TOP = [
-  {
-    key: "chiva",
-    src: chiva,
-    precio: "$55.000 COP",
-    fullFlyer: tour_chiva
+{
+    key: "tres",
+    precio: "$510.000 COP",
+    src: isla, // Usa tu variable de imagen correspondiente
+    fullFlyer: tour_isla
+ 
   },
   {
     key: "pao",
@@ -60,50 +63,40 @@ const TOP = [
 
 //planes en la bahia
 // --- 1. Importa tus flyers (asegúrate de que los nombres coincidan con tus archivos) ---
-const toursData = [
+const toursIslas = [
 {
     id: 1,
     title: "Top 3 Islas",
-    tag: "Bora Bora, Pao Pao e Isabela",
     price: "$510.000 COP",
-    excerpt: "Vive un día inolvidable visitando tres destinos premium en un solo tour con guía bilingüe y almuerzo incluido.",
     miniImg: isla, // Usa tu variable de imagen correspondiente
     fullFlyer: tour_isla
  
   },
   {
     id: 2,
-    title: "Volcán del Totumo",
-    tag: "Spa Natural y Relajación",
-    price: "$120.000 COP", 
-    excerpt: "Disfruta la tranquilidad de sumergirte en este increíble spa natural de lodo con propiedades medicinales.",
-    miniImg: volcan,
-   fullFlyer: tour_volcan
+    title: "Mucura",
+    price: "$420.000 COP", 
+    miniImg: mucura,
+   fullFlyer: tour_mucura
   },
   {
      id: 3,
-    title: "Chiva Rumbera",
-    tag: "Fiesta en la Ciudad Amurallada",
-    price: "$55.000 COP", // Precio promedio base para este tour local
-    excerpt: "Súbete a la fiesta sobre ruedas con música en vivo y ambiente rumbero por las calles de Cartagena.",
-    miniImg: chiva,
-   fullFlyer: tour_chiva
+    title: "Palmas",
+    price: "$420.000 COP", // Precio promedio base para este tour local
+    miniImg: palmas,
+   fullFlyer: tour_palmas
   },
  {
     id: 4,
-    title: "Bora Bora Beach Club",
-    tag: "Área VIP - Islas del Rosario",
-    price: "$490.000 COP",
-    excerpt: "Lujo y exclusividad con transporte en lancha rápida, coctel de bienvenida y acceso total a la zona VIP.",
-    miniImg: bora,
+    title: "Islas de rosario",
+    price: "$160.000 COP",
+    miniImg: rosario,
     fullFlyer: tour_bora_vip
   },
   {
     id: 5,
     title: "Bora Bora - Área Club",
-    tag: "Playa y Diversión (+18)",
     price: "$390.000 COP",
-    excerpt: "Acceso total al área club de Bora Bora. Incluye transporte ida y vuelta, cóctel de bienvenida y 5 opciones de almuerzo.",
     miniImg: bora,
     fullFlyer: tour_bora
   },
@@ -142,6 +135,7 @@ const prevTopSlide = () => {
        <Hero />
 
        
+       <Contacto/>
 
 
       {/*seccion de top */}
@@ -165,7 +159,7 @@ const position =
   return (
 
     <motion.div
-      key={tour.id}
+  key={tour.key}
 
       drag={position === "center" ? "x" : false}
       dragConstraints={{ left: 0, right: 0 }}
@@ -253,7 +247,7 @@ const position =
           onClick={() => setSelectedFlyer(tour.fullFlyer)}
           className="mt-4 bg-[#C5A059] text-white font-bold py-3 px-6 rounded-xl"
         >
-            {t("top.buttom")}
+            {t("top.button")}
         </button>
 
       </div>
@@ -267,12 +261,19 @@ const position =
 </section>
         {/* SECCIÓN DE TURES (GRID) */}
         <section id='tures' className='py-20 bg-gray-50'>
-          <h2 className='text-3xl font-bold text-[#123499] text-center mb-10'>{t("header.destinations")}</h2>
+          {/* TITULO GENERAL */}
+  <h2 className="text-3xl md:text-4xl font-black text-[#123499] text-center mb-7">{t("subtoures.category")}</h2>
+          <div className='flex justify-between '>
+     <h3 className="text-2xl md:text-4xl font-black text-[#123499]">{t("subtoures.islass")}</h3>
+         <Link to="/CategoriaIslas"className=" bg-[#C5A059] text-white font-bold px-4 py-2 rounded-2xl transition-all duration-300 hover:scale-105 shadow-md mb-4">
+      {t("top.button")}
+    </Link>
+          </div>
          <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[250px] 
   gap-3 md:gap-5
 ">
 
-  {toursData.map((tour, index) => (
+  {toursIslas.map((tour, index) => (
 
     <div key={tour.id} className={`relative rounded-3xl overflow-hidden group cursor-pointer
 
@@ -317,18 +318,7 @@ const position =
         p-3 md:p-5
         text-white z-10
       ">
-      {(index === 0 || window.innerWidth >= 768) && (
-          <p className="
-          text-[9px] md:text-xs
-          uppercase
-          tracking-widest
-          text-[#C5A059]
-          font-bold
-          ">
-             {tour.tag}
-          </p>
-        )}
-      
+  
 
         <h3 className={`
           font-black leading-tight mt-1
@@ -342,22 +332,13 @@ const position =
         </h3>
 
         {/* SOLO algunas cards muestran descripción */}
-        {(index === 0 || window.innerWidth >= 768) && (
-          <p className="
-            text-xs md:text-sm
-            text-gray-200
-            mt-2
-            line-clamp-2
-          ">
-            {tour.excerpt}
-          </p>
-        )}
+
 
         <button
           onClick={() => setSelectedFlyer(tour.fullFlyer)}
           className="
             mt-3 md:mt-4
-            bg-white text-black
+             bg-[#C5A059] text-white
             px-4 md:px-5
             py-2
             rounded-full
@@ -368,7 +349,7 @@ const position =
             transition
           "
         >
-          {t("top.buttom")}
+          {t("top.button")}
         </button>
 
       </div>
