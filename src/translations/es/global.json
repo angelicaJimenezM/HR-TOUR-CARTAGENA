@@ -1,7 +1,7 @@
 {
   "header": {
     
-      "about": "Quines Somos",
+      "about": "Quienes Somos",
       "contact": "Redes y Contacto",
       "destinations": "Nuestros Destinos"
     },
@@ -38,7 +38,7 @@
        "button": "Ver mas...",
     "tres": {
     "nombre": "tres islas",
-    "descripcion": "desconecta del estres y conecta con ell paraiso."
+    "descripcion": "desconecta del estres y conecta con el paraiso."
   },
   "pao": {
     "nombre": "Tour a Pao Pao",
@@ -62,7 +62,11 @@
   "islas": {
     "title": "Categoria Islas",
     "subtitle": "¿Listo para el viaje de tus sueños?",
-    "text": "Tu aventura caribeña empieza aquí. Descubre playas de ensueño, aguas cristalinas y el descanso que te mereces, reserva tu lugar en el paraíso hoy mismo"
+    "text": "Tu aventura caribeña empieza aquí. Descubre playas de en sueño, aguas cristalinas y el descanso que te mereces, reserva tu lugar en el paraíso hoy mismo"
+  },
+  "city": {
+    "title": "Categoria Ciudad",
+    "subtitle": "Vive la ciudad, no solo la visites.",
+    "text": "Deja atrás los caminos típicos y sumérgete en el ritmo real de las calles. Desde monumentos imponentes hasta los rincones ocultos más fotogénicos, diseñamos rutas para que sientas la energía local en la piel. ¿Listo para descubrir tu próximo lugar favorito?"
   }
-
 } 

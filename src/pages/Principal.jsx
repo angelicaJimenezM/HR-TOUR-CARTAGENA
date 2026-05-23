@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { motion } from "framer-motion"
 import telefono from '../assets/imagenes/iconos/telefono.webp'
 import correo from '../assets/imagenes/iconos/correo.webp'
-import isla from '../assets/imagenes/portadas/3-islas.webp'
+import isla from '../assets/imagenes/portadas/islas/3-islas.webp'
 import palmas from '../assets/imagenes/portadas/islas/palmas.webp'
 import volcan from '../assets/imagenes/portadas/volcan.webp'
 import bora from '../assets/imagenes/portadas/bora-bora.webp'
@@ -11,6 +11,9 @@ import rosario from '../assets/imagenes/portadas/islas/isla-rosario.webp'
 import mucura from '../assets/imagenes/portadas/islas/mucura.webp'
 import pao_pao from '../assets/imagenes/portadas/pao-pao.webp'
 import bahia from '../assets/imagenes/portadas/bahia.webp'
+import cartagena from "../assets/imagenes/portadas/city/cartagena.webp";
+import barranquilla from "../assets/imagenes/portadas/city/barranquilla.webp";
+import santamarta from "../assets/imagenes/portadas/city/santamarta.webp";
 import tour_isla from '../assets/imagenes/tours/islas/3-islas.webp'
 import tour_volcan from '../assets/imagenes/tours/volcan.webp'
 import tour_palmas from '../assets/imagenes/tours/islas/isla-palmas.webp'
@@ -19,6 +22,9 @@ import tour_bora from '../assets/imagenes/tours/bora.webp'
 import tour_pao from '../assets/imagenes/tours/pao-pao.webp'
 import tour_mucura from '../assets/imagenes/tours/islas/isla-mucura.webp'
 import tour_bahia from '../assets/imagenes/tours/bahia.webp'
+import tour_city_cartagena from "../assets/imagenes/tours/city-tous/tour-cartagena.webp";
+import tour_city_barranquilla from "../assets/imagenes/tours/city-tous/tour-barranquilla.webp";
+import tour_city_santamarta from "../assets/imagenes/tours/city-tous/tour-barranquilla-santamarta.webp";
 import tiktok from '../assets/imagenes/iconos/tik-tok.webp'
 import facebook from '../assets/imagenes/iconos/facebook.webp'
 import WhatsApp from '../assets/imagenes/iconos/whatsapp.webp'
@@ -60,6 +66,30 @@ const TOP = [
 
 // planes en la ciudad
 
+const toursCity = [
+  {
+    id: 1,
+    title: "City Tour Cartagena",
+    price: "$100.000 COP",
+    miniImg: cartagena,
+    fullFlyer: tour_city_cartagena,
+  },
+  {
+    id: 2,
+    title: "City Tour Barranquilla",
+    price: "$150.000 COP",
+    miniImg: barranquilla,
+    fullFlyer: tour_city_barranquilla,
+  },
+  {
+    id: 3,
+    title: "City tour Barranquilla y Santa  marta",
+    price: "$250.000 COP",
+    miniImg: santamarta,
+    fullFlyer: tour_city_santamarta,
+  },
+
+];
 
 //planes en la bahia
 // --- 1. Importa tus flyers (asegúrate de que los nombres coincidan con tus archivos) ---
@@ -361,7 +391,114 @@ const position =
 </div>
         </section>
 
+      {/*AQUI ESTA TOURS CITY */}
       
+
+     <section id='tures' className='py-20 bg-gray-50'>
+          {/* TITULO GENERAL */}
+          <div className='flex justify-between '>
+     <h3 className="text-2xl md:text-4xl font-black text-[#123499]">City</h3>
+         <Link to="/CategoriaCity"className=" bg-[#C5A059] text-white font-bold px-4 py-2 rounded-2xl transition-all duration-300 hover:scale-105 shadow-md mb-4">
+      {t("top.button")}
+    </Link>
+          </div>
+         <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[250px] 
+  gap-3 md:gap-5
+">
+
+  {toursCity.map((tour, index) => (
+
+    <div key={tour.id} className={`relative rounded-3xl overflow-hidden group cursor-pointer
+
+        ${index === 0 ? "col-span-2 row-span-2 md:row-span-3"  : ""}
+        ${index === 2  ? "md:col-span-1 md:row-span-3" : "" }
+      `}
+    >
+
+      {/* Imagen */}
+      <img
+        src={tour.miniImg}
+        alt={tour.title}
+        className="
+          w-full h-full object-cover
+          group-hover:scale-110
+          transition duration-700
+        "
+      />
+
+      {/* Overlay elegante */}
+     
+
+      {/* Precio */}
+      <div className="
+        absolute top-3 right-3
+        bg-[#123499]
+        border border-[#C5A059]
+        text-white
+        px-3 py-1
+        rounded-full
+        text-[10px] md:text-xs
+        font-bold
+        z-10
+        shadow-lg
+      ">
+        {tour.price}
+      </div>
+
+      {/* Contenido */}
+      <div className="
+        absolute bottom-0
+        p-3 md:p-5
+        text-white z-10
+      ">
+  
+
+        <h3 className={`
+          font-black leading-tight mt-1
+
+          ${index === 0
+            ? "text-2xl md:text-4xl"
+            : "text-lg md:text-2xl"
+          }
+        `}>
+          {tour.title}
+        </h3>
+
+        {/* SOLO algunas cards muestran descripción */}
+
+
+        <button
+          onClick={() => setSelectedFlyer(tour.fullFlyer)}
+          className="
+            mt-3 md:mt-4
+             bg-[#C5A059] text-white
+            px-4 md:px-5
+            py-2
+            rounded-full
+            text-sm
+            font-bold
+            hover:bg-[#C5A059]
+            hover:text-white
+            transition
+          "
+        >
+          {t("top.button")}
+        </button>
+
+      </div>
+
+    </div>
+
+  ))}
+
+</div>
+        </section>
+
+
+
+
+
+
       </main>
 
       {/* MODAL DEL FLYER */}
@@ -373,6 +510,7 @@ const position =
           </div>
         </div>
       )}
+
   {/* aqui comienza el footer, para que se dirijan a las redes sociales */}
     <footer className='flex flex-col items-center bg-[#ece2c6] py-8 border-t border-[#C5A059]' id='redes'>
   {/* Título con el color dorado de la marca */}
