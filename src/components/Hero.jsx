@@ -52,7 +52,7 @@ useEffect(() => {
         transition={{ duration: 0.8 }}
         className="absolute inset-0 w-full h-full"
       >
-        <img src={tour.src} alt="" className="w-full h-full object-cover" />
+        <img src={tour.src} alt="" className="w-full h-full object-cover object-center" />
         {/* Gradiente oscuro para que el texto resalte */}
         <div className="absolute inset-0 bg-gradient-to-t  from-black/70 via-black/30 to-transparent" />
       </motion.div>

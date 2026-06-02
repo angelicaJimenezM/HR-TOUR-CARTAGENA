@@ -67,7 +67,98 @@
     "title": "Category City",
     "subtitle": "Experience the city, don't just visit it.",
     "text": "Leave the typical paths behind and immerse yourself in the real rhythm of the streets. From imposing monuments to the most photogenic hidden corners, we've designed routes so you can feel the local energy in your bones. Ready to discover your next favorite place?"
+  },
+  
+  "touresCity":{
+     "cartagena": {
+    "description": "• Transportation: Comfortable air-conditioned tourist transportation. • Highlights: Visit Cartagena's most iconic landmarks and attractions. • Guided Experience: Professional tour guide accompanying you throughout the tour. • Refreshments: Complimentary hydration included.\n• Safety: Travel assistance card included for your peace of mind." 
+   },
+   "barranquilla":{
+"description": "• Transportation: Comfortable air-conditioned tourist transportation. • Highlights: Visit the city's most iconic landmarks and attractions. • Guided Experience: Professional tour guide accompanying you throughout the journey. • Comfort: Complimentary hydration included. • Safety: Medical assistance coverage for your peace of mind."  },
+  "santamarta":{
+"description": "• Heritage: Explore the most iconic and historic landmarks of both destinations with a guided tour. • Itinerary: Enjoy a complete panoramic journey through the highlights of both cities. • Local Experience: Discover the vibrant culture and authentic Caribbean flavors. • Photo Opportunities: Strategic stops at the best locations for unforgettable pictures. • Atmosphere: Experience a well-organized, lively, and enjoyable Caribbean adventure."  }
+},
+"touresIslas": {
+  "top3islas": {
+    "title": "Top 3 Islands",
+    "description": "• Sea Transportation: Round-trip transfer by speedboat.\n• Island Tour: Guided visit to the 3 featured islands.\n• Welcome Cocktail: Start your day with the best Caribbean flavor.\n• Traditional Lunch: Delicious local cuisine included.\n• Free Time: Enjoy and relax at each destination.\n• Permanent Assistance: Guidance and support throughout the entire tour."
+  },
+
+  "top4islas": {
+    "title": "Top 4 Islands",
+    "description": "• Sea Transportation: Round-trip transfer by speedboat.\n• Guided Activity: Snorkeling experience in coral reefs.\n• Tour Assistance: Dedicated tour coordinator during the entire trip.\n• Gastronomy: Traditional regional lunch included.\n• Free Time: Time to enjoy and relax on each island.\n• Safety: Medical assistance coverage during the activity."
+  },
+
+  "ancestral": {
+    "title": "Ancestral",
+    "description": "• Premium Access: Full access to the hotel/lounge facilities.\n• Gastronomy: Traditional Caribbean lunch included.\n• Complimentary Drink: A welcome cocktail upon arrival.\n• Water Areas: Access to the pool and beach area with direct sea access.\n• Experience: Enjoy an ancestral atmosphere designed for music and relaxation."
+  },
+
+  "palmerito": {
+    "title": "Palmerito",
+    "description": "• Sea Transportation: Round-trip speedboat transfer.\n• Facilities: Access to all facilities and common areas.\n• Traditional Cuisine: Typical lunch included (with fried fish option).\n• Complimentary Drink: Fruity welcome cocktail to start your day.\n• Safety: Medical assistance card included for your peace of mind."
+  },
+
+  "capribaru": {
+    "title": "Capri Barú",
+    "description": "• Sea Transportation: Round-trip speedboat transfer.\n• Facilities: Access to social areas, common spaces, and amenities.\n• Gastronomy: Traditional lunch included (with delicious fried fish option).\n• Complimentary Drink: Refreshing welcome cocktail.\n• Safety: Medical assistance card included during the day trip."
+  },
+
+  "fenix": {
+    "title": "Fénix Island Basic Plan",
+    "description": "• Sea Transportation: Comfortable round-trip boat transfer.\n• Gastronomy: Traditional lunch included.\n• Facilities: Full access to all areas of the destination.\n• Entertainment: Participation in organized recreational activities.\n• Experience: Enjoy a great beach atmosphere and guaranteed fun."
+  },
+
+  "ibbizabaru": {
+    "title": "Ibbiza Barú Island",
+    "description": "• Sea Transportation: Round-trip speedboat transfer.\n• Facilities: Access to social areas, common spaces, and amenities.\n• Gastronomy: Traditional lunch included (with delicious fried fish option).\n• Complimentary Drink: Refreshing welcome cocktail.\n• Safety: Medical assistance card included during the day trip."
+  },
+
+  "mucura": {
+    "title": "Múcura Island",
+    "description": "• Sea Transportation: Comfortable round-trip boat transfer.\n• Gastronomy: Traditional island-style lunch included.\n• Beach Amenities: Direct beach access and full use of the facilities.\n• Entertainment: Participation in organized recreational activities.\n• Safety: Basic medical assistance coverage included."
+  },
+
+  "palma": {
+    "title": "Palma Island",
+    "description": "• Sea Transportation: Comfortable round-trip boat transfer.\n• Facilities: Full access to the destination's facilities.\n• Gastronomy: Traditional regional lunch included.\n• Complimentary Drink: Refreshing welcome cocktail upon arrival.\n• Safety: Medical assistance coverage during the activity."
+  },
+
+  "rosariosencillo": {
+    "title": "Rosario Island Basic",
+    "description": "• Sea Transportation: Round-trip transfer by speedboat.\n• Facilities: Full access to the destination's facilities.\n• Gastronomy: Delicious traditional Caribbean lunch.\n• Activities: Guided snorkeling session (subject to availability).\n• Environment: Enjoy a unique natural setting with crystal-clear beaches."
+  },
+
+  "rosario": {
+    "title": "Rosario Island",
+    "description": "• Sea Transportation: Comfortable round-trip boat transfer.\n• Guided Activities: Snorkeling session to explore vibrant coral reefs.\n• Local Gastronomy: Delicious traditional island lunch.\n• Beach Amenities: Access to the beach area and club facilities.\n• Natural Environment: Enjoy paradise-like beaches in a unique setting.\n• Safety: Basic medical assistance coverage included."
+  },
+
+  "sabai": {
+    "title": "Sabai Island",
+    "description": "• VIP Environment: Exclusive atmosphere designed for maximum comfort.\n• Gastronomic Experience: Premium dining service and selected cocktails.\n• Musical Atmosphere: Continuous entertainment with great music and beach vibes.\n• Prime Location: Stay directly by the sea in one of Cartagena's best areas."
+  },
+
+  "encantobaru": {
+    "title": "Encanto Barú Island",
+    "description": "• Sea Transportation: Round-trip boat transfer.\n• Beach Amenities: Access to hotel facilities and beach chair.\n• Gastronomy: Delicious traditional regional lunch.\n• Complimentary Drink: Refreshing welcome drink upon arrival.\n• Water Activities: Access to water activities (subject to plan conditions).\n• Safety: Medical assistance service included during the day trip."
+  },
+
+  "cocoliso": {
+    "title": "Cocoliso",
+    "description": "• Sea Transportation: Round-trip transfer by speedboat.\n• Facilities: Access to facilities and common areas.\n• Gastronomy: Selected menu-style lunch included.\n• Complimentary Drink: Welcome cocktail upon arrival.\n• Activities: Guided snorkeling activities.\n• Safety: Medical assistance coverage included."
+  },
+
+  "mangata": {
+    "title": "Mangata",
+    "description": "• Sea Transportation: Exclusive round-trip transfer by sport boat.\n• VIP Access: Entry to an exclusive beach and VIP beach club areas.\n• À La Carte Dining: Premium lunch with carefully selected dishes.\n• Entertainment: Caribbean atmosphere with live DJ and tropical music.\n• Water Activities: Free use of kayaks, paddleboards, and snorkeling equipment."
+  },
+
+  "luxury": {
+    "title": "Luxury",
+    "description": "• Exclusive Access: Full entry to a premium beach club.\n• Gourmet Dining: Delicious lunch with traditional or specialty menu options.\n• Complimentary Drink: Special welcome cocktail to celebrate your day.\n• Comfort Areas: Full access to pool, beach, and relaxation zones."
   }
+}
 }
 
    

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Header } from "../components/Header";
 import { Contacto } from "../components/Contacto";
+import { Footer } from "../components/Footer";
 import p_islas from "../assets/imagenes/portadas/p_islas.webp";
 import city from "../assets/imagenes/portadas/city.webp";
 import cartagena from "../assets/imagenes/portadas/city/cartagena.webp";
@@ -18,6 +19,7 @@ const toursCity = [
     price: "$100.000 COP",
     miniImg: cartagena,
     fullFlyer: tour_city_cartagena,
+    descriptionKey:"touresCity.cartagena.description"
   },
   {
     id: 2,
@@ -25,6 +27,7 @@ const toursCity = [
     price: "$150.000 COP",
     miniImg: barranquilla,
     fullFlyer: tour_city_barranquilla,
+             descriptionKey:"touresCity.cartagena.description"
   },
   {
     id: 3,
@@ -32,6 +35,7 @@ const toursCity = [
     price: "$250.000 COP",
     miniImg: santamarta,
     fullFlyer: tour_city_santamarta,
+     descriptionKey:"touresCity.cartagena.description"
   },
 
 ];
@@ -39,7 +43,7 @@ const toursCity = [
 export function CategoriaCity() {
   const { t } = useTranslation("global");
 
-  const [selectedFlyer, setSelectedFlyer] = useState(null);
+ const [selectedTour, setSelectedTour] = useState(null);
 
   return (
     <div>
@@ -101,7 +105,7 @@ export function CategoriaCity() {
                 </p>
 
                 <button
-                  onClick={() => setSelectedFlyer(tour.fullFlyer)}
+                  onClick={() => setSelectedTour(tour)}
                   className="mt-5 bg-[#C5A059] hover:bg-[#af8c4c] transition text-white px-10 py-3 rounded-full font-bold"
                 >
                   {t("top.button")}
@@ -112,19 +116,74 @@ export function CategoriaCity() {
         </section>
 
         {/* MODAL */}
-        {selectedFlyer && (
-          <div
-            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-5"
-            onClick={() => setSelectedFlyer(null)}
-          >
-            <img
-              src={selectedFlyer}
-              alt="Flyer"
-              className="max-w-full max-h-full rounded-2xl shadow-2xl"
-            />
-          </div>
+        {selectedTour && (
+                        <div
+  className="fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4"
+  onClick={() => setSelectedTour(null)}
+>
+  <div
+    className="
+      relative
+      bg-white
+      rounded-2xl
+      max-w-5xl
+      w-full
+      max-h-[90vh]
+      overflow-y-auto
+    "
+    onClick={(e) => e.stopPropagation()}
+  >
+
+    <button
+      onClick={() => setSelectedTour(null)}
+      className="
+        absolute top-4 right-4
+        w-10 h-10
+        rounded-full
+        bg-white
+        shadow-lg
+        font-bold
+      "
+    >
+      ✕
+    </button>
+
+         <img
+                src={selectedTour.miniImg}
+                alt={selectedTour.title}
+                className="
+                  w-full h-full
+                  object-cover
+                  group-hover:scale-110
+                  transition duration-700
+                "
+              />
+
+    <div className="p-6">
+        <h2 className="text-3xl font-black text-[#123499]">
+        {selectedTour.title}
+      </h2>
+
+      <p className="text-[#C5A059] text-xl font-bold mt-2">
+        {selectedTour.price}
+      </p>
+
+      <p className="text-gray-700 mt-4 leading-relaxed">
+        {t(selectedTour.descriptionKey)}
+      </p>
+    <img
+      src={selectedTour.fullFlyer}
+      alt={selectedTour.title}
+      className="w-full"
+    />
+
+    </div>
+
+  </div>
+</div>
         )}
       </main>
+      <Footer/>
     </div>
   );
 }

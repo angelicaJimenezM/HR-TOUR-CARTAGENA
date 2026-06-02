@@ -40,16 +40,13 @@
     "nombre": "tres islas",
     "descripcion": "desconecta del estres y conecta con el paraiso."
   },
-  "pao": {
-    "nombre": "Tour a Pao Pao",
-    "descripcion": "Hotel y restaurante con piscina de agua dulce, actividades diarias de bienestar y snorkel guiado incluido."
-  },
+ 
   "mucura": {
     "nombre": "Tour Isla Múcura",
     "descripcion": "Escápate a aguas cristalinas con almuerzo premium caribeño y acceso completo a zonas sociales y de juegos."
   }
 },
-
+ 
 "languages": {
   
     "language": "Idiomas"
@@ -68,5 +65,98 @@
     "title": "Categoria Ciudad",
     "subtitle": "Vive la ciudad, no solo la visites.",
     "text": "Deja atrás los caminos típicos y sumérgete en el ritmo real de las calles. Desde monumentos imponentes hasta los rincones ocultos más fotogénicos, diseñamos rutas para que sientas la energía local en la piel. ¿Listo para descubrir tu próximo lugar favorito?"
+  },
+    "touresCity":{
+     "cartagena": {
+    "description": "• Transportation: Comfortable air-conditioned tourist transportation. • Highlights: Visit Cartagena's most iconic landmarks and attractions. • Guided Experience: Professional tour guide accompanying you throughout the tour. • Refreshments: Complimentary hydration included.\n• Safety: Travel assistance card included for your peace of mind." 
+   },
+   "barranquilla":{
+    "description": "• Transporte: Transporte turístico climatizado y confortable. • Itinerario: Recorrido planificado por los principales atractivos y puntos de interés de la ciudad. • Acompañamiento: Guía profesional acompañante durante todo el trayecto. • Bienestar: Hidratación incluida para el recorrido. • Seguridad: Cobertura con tarjeta de asistencia médica." 
+  },
+  "santamarta":{
+    "description": "• Patrimonio: Visita guiada a los monumentos más icónicos e históricos de ambos destinos. • Itinerario: Recorrido panorámico completo por las zonas clave de las dos ciudades. • Experiencia local: Inmersión en la cultura viva y la gastronomía tradicional caribeña. • Recuerdos: Paradas estratégicas diseñadas para capturar fotos increíbles. • Entorno: Disfrute de un ambiente turístico organizado, dinámico y divertido." 
   }
+},
+   "touresIslas":{
+    "top3islas": {
+    "title": "Top 3 Islas",
+    "description": "• Transporte marítimo: Traslado de ida y regreso en lancha rápida.\n• Recorrido turístico: Visita guiada a las 3 islas mencionadas.\n• Cóctel de bienvenida: Para empezar el día con el mejor sabor caribeño.\n• Almuerzo típico: Deliciosa gastronomía local incluida.\n• Tiempo libre: Espacio para disfrutar y relajarte en cada destino.\n• Asistencia permanente: Acompañamiento y soporte durante todo el recorrido."
+  },
+
+  "top4islas": {
+    "title": "Top 4 Islas",
+    "description": "• Transporte marítimo: Transporte en lancha rápida (ida y regreso).\n• Actividad dirigida: Snorkel guiado en arrecifes de coral.\n• Acompañamiento: Coordinador turístico dedicado durante todo el recorrido.\n• Gastronomía: Almuerzo típico de la región incluido.\n• Tiempo libre: Espacio dedicado para disfrutar y relajarte en cada isla.\n• Seguridad: Cobertura de asistencia médica durante la actividad."
+  },
+
+  "ancestral": {
+    "title": "Ancestral",
+    "description": "• Acceso premium: Ingreso completo a las instalaciones del hotel/lounge.\n• Gastronomía: Almuerzo típico caribeño incluido.\n• Bebida de cortesía: Un Welcome Drink (cóctel de bienvenida) al llegar.\n• Áreas húmedas: Uso y acceso a la piscina y zona de playa con acceso al mar.\n• Experiencia: Disfrute de un ambiente ancestral diseñado para la música y el descanso."
+  },
+
+  "palmerito": {
+    "title": "Palmerito",
+    "description": "• Transporte marítimo: Transporte en lancha rápida de ida y regreso.\n• Instalaciones: Uso de las instalaciones del lugar y áreas comunes.\n• Gastronomía tradicional: Almuerzo típico incluido (con opción de delicioso pescado frito).\n• Bebida de cortesía: Cóctel de bienvenida frutal para iniciar el día.\n• Seguridad: Tarjeta de asistencia médica incluida para tu tranquilidad."
+  },
+
+  "capribaru": {
+    "title": "CapriBarú",
+    "description": "• Transporte marítimo: Traslado en lancha rápida de ida y vuelta.\n• Instalaciones: Uso de las áreas sociales, zonas comunes y comodidades del lugar.\n• Gastronomía: Almuerzo típico tradicional (opción de delicioso pescado frito).\n• Bebida de cortesía: Cóctel de bienvenida frutal o refrescante.\n• Seguridad: Tarjeta de asistencia médica incluida durante el pasadía."
+  },
+
+  "fenix": {
+    "title": "Fénix ",
+    "description": "• Transporte marítimo: Cómodo traslado de ida y vuelta en lancha.\n• Gastronomía: Almuerzo típico tradicional incluido.\n• Instalaciones: Acceso y uso completo de las áreas del lugar.\n• Entretenimiento: Participación en actividades recreativas organizadas.\n• Experiencia: Disfrute de un excelente ambiente playero y diversión garantizada."
+  },
+
+  "ibbizabaru": {
+    "title": "IbbizaBarú",
+    "description": "• Transporte marítimo: Traslado en lancha rápida de ida y vuelta.\n• Instalaciones: Uso de las áreas sociales, zonas comunes y comodidades del lugar.\n• Gastronomía: Almuerzo típico tradicional (opción de delicioso pescado frito).\n• Bebida de cortesía: Cóctel de bienvenida frutal o refrescante.\n• Seguridad: Tarjeta de asistencia médica incluida durante el pasadía."
+  },
+
+  "mucura": {
+    "title": "Múcura",
+    "description": "• Transporte marítimo: Cómodo transporte de ida y vuelta en lancha.\n• Gastronomía: Almuerzo típico tradicional de la isla.\n• Comodidades de playa: Acceso directo a zona de playa y uso completo de las instalaciones del lugar.\n• Entretenimiento: Participación en actividades recreativas organizadas en el destino.\n• Seguridad: Cobertura con tarjeta de asistencia médica incluida."
+  },
+
+  "palma": {
+    "title": " Palma",
+    "description": "• Transporte marítimo: Cómodo traslado de ida y regreso en lancha.\n• Instalaciones: Uso completo de las instalaciones del destino.\n• Gastronomía: Almuerzo típico de la región incluido.\n• Bebida de cortesía: Un refrescante cóctel de bienvenida al llegar.\n• Seguridad: Cobertura con tarjeta de asistencia médica durante la actividad."
+  },
+
+  "rosariosencillo": {
+    "title": "RosarioSencillo",
+    "description": "• Transporte marítimo: Traslado de ida y regreso en lancha rápida.\n• Instalaciones: Acceso y uso completo de las instalaciones del lugar.\n• Gastronomía: Delicioso almuerzo típico de la región caribeña.\n• Actividades: Sesión de snorkel guiada (sujeto a disponibilidad).\n• Entorno: Disfrute total de un ambiente natural único y playas cristalinas."
+  },
+
+  "rosario": {
+    "title": "Rosario",
+    "description": "• Transporte marítimo: Cómodo traslado en lancha de ida y regreso.\n• Actividades guiadas: Sesión de snorkel para explorar arrecifes llenos de diversión.\n• Gastronomía local: Delicioso almuerzo típico de las islas.\n• Comodidades de playa: Uso directo de la zona de playa y áreas comunes del club.\n• Entorno natural: Disfrute total de playas paradisíacas en un ambiente natural único.\n• Seguridad: Cobertura con asistencia básica de salud incluida."
+  },
+
+  "sabai": {
+    "title": "Sabai",
+    "description": "• Entorno VIP: Acceso a un ambiente exclusivo diseñado para el máximo confort.\n• Experiencia gastronómica: Servicio completo de alta gastronomía y coctelería selecta.\n• Ambiente musical: Entretenimiento continuo con excelente música y buena vibra playera.\n• Ubicación privilegiada: Estadía directa frente al mar en una de las mejores zonas de Cartagena."
+  },
+
+  "encantobaru": {
+    "title": "Encanto",
+    "description": "• Transporte marítimo: Transporte de ida y regreso en lancha.\n• Comodidades de playa: Uso de las instalaciones del hotel y silla de playa.\n• Gastronomía: Delicioso almuerzo típico de la región.\n• Bebida de cortesía: Un refrescante Welcome Drink (bebida de bienvenida).\n• Actividades marítimas: Acceso a actividades acuáticas (sujeto a las condiciones del plan).\n• Seguridad: Servicio de asistencia médica incluido durante el pasadía."
+  },
+
+  "cocoliso": {
+    "title": "Cocoliso",
+    "description": "• Transporte marítimo: Traslado de ida y regreso en lancha rápida.\n• Instalaciones: Uso de las instalaciones y zonas comunes del lugar.\n• Gastronomía: Almuerzo tipo menú seleccionado.\n• Bebida de cortesía: Un cóctel de bienvenida al llegar.\n• Actividades: Práctica y actividades guiadas de snorkel.\n• Seguridad: Cobertura con tarjeta de asistencia médica."
+  },
+
+  "mangata": {
+    "title": "Mangata",
+    "description": "• Transporte marítimo: Traslado exclusivo de ida y regreso en lancha deportiva.\n• Acceso VIP: Ingreso a playa exclusiva y zonas VIP del club de playa.\n• Gastronomía a la carta: Almuerzo premium con platos seleccionados a la carta.\n• Entretenimiento: Ambiente caribeño amenizado con DJ en vivo y música tropical.\n• Actividades náuticas: Uso libre de kayaks, tablas de paddleboard y equipo de snorkel."
+  },
+
+  "luxury": {
+    "title": "Luxury",
+    "description": "• Acceso exclusivo: Ingreso completo a un club de playa con instalaciones premium.\n• Gastronomía gourmet: Almuerzo delicioso con opciones de menú típico o especial.\n• Bebida de cortesía: Cóctel de bienvenida especial para brindar por tu día.\n• Zonas de confort: Acceso total a piscina, playa y áreas de máximo confort y relajación."
+  }
+ 
+}
 } 

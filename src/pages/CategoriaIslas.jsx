@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Header } from "../components/Header";
 import { Contacto } from "../components/Contacto";
+import { Footer } from "../components/Footer";
 import p_islas from "../assets/imagenes/portadas/p_islas.webp";
 import rosario from "../assets/imagenes/portadas/islas/isla-rosario.webp";
 import mucura from "../assets/imagenes/portadas/islas/mucura.webp";
@@ -35,125 +36,146 @@ import tour_isla_cocoliso from "../assets/imagenes/tours/islas/isla-cocoliso.web
 import tour_isla_mangata from "../assets/imagenes/tours/islas/isla-mangata.webp";
 import tour_isla_luxury from "../assets/imagenes/tours/islas/isla-luxury.webp";
 
+
+
 const toursIslas = [
-  {
-    id: 1,
-    title: "Top 3 Islas",
-    price: "$510.000 COP",
-    miniImg: isla_3,
-    fullFlyer: tour_isla_3,
-  },
-  {
-    id: 2,
-    title: "Top 4 Islas",
-    price: "$180.000 COP",
-    miniImg: isla_4,
-    fullFlyer: tour_isla_4,
-  },
-  {
-    id: 3,
-    title: "Ancestral",
-    price: "$190.000 COP",
-    miniImg: ancestral,
-    fullFlyer: tour_ancestral,
-  },
-  {
-    id: 4,
-    title: "Palmerito",
-    price: "$230.000 COP",
-    miniImg: palmerito,
-    fullFlyer: tour_isla_palmerito,
-  },
-  {
-    id: 5,
-    title: "Capri Barú",
-    price: "$460.000 COP",
-    miniImg: baru,
-    fullFlyer: tour_capri_baru,
-  },
-  {
-    id: 6,
-    title: "Isla Fénix Plan Básico",
-    price: "$195.000 COP",
-    miniImg: fenix,
-    fullFlyer: tour_isla_fenix,
-  },
-  {
-    id: 7,
-    title: "Isla Ibbiza Barú",
-    price: "$380.000 COP",
-    miniImg: ibbiza_baru,
-    fullFlyer: tour_ibbiza_baru,
-  },
-  {
-    id: 8,
-    title: "Isla Múcura",
-    price: "$420.000 COP",
-    miniImg: mucura,
-    fullFlyer: tour_mucura,
-  },
-  {
-    id: 9,
-    title: "Isla Palmas",
-    price: "$420.000 COP",
-    miniImg: palmas,
-    fullFlyer: tour_isla_palmas,
-  },
-  {
-    id: 10,
-    title: "Isla Rosario Sencillo",
-    price: "$160.000 COP",
-    miniImg: rosario,
-    fullFlyer: tour_isla_rosario,
-  },
-  {
-    id: 11,
-    title: "Isla Rosario",
-    price: "$360.000 COP",
-    miniImg: rosario,
-    fullFlyer: tour_isla_rosario2,
-  },
-  {
-    id: 12,
-    title: "Isla Sabai",
-    price: "$480.000 COP",
-    miniImg: sabai,
-    fullFlyer: tour_isla_sabai,
-  },
-  {
-    id: 13,
-    title: "Isla del Encanto Barú",
-    price: "$420.000 COP",
-    miniImg: encanto_baru,
-    fullFlyer: tour_isla_baru,
-  },
-  {
-    id: 14,
-    title: "Cocoliso",
-    price: "$420.000 COP",
-    miniImg: cocoliso,
-    fullFlyer: tour_isla_cocoliso,
-  },
-  {
-    id: 15,
-    title: "Mangata",
-    price: "$399.000 COP",
-    miniImg: mangata,
-    fullFlyer: tour_isla_mangata,
-  },
-   {
-    id: 16,
-    title: "luxury",
-    price: "$480.000 COP",
-    miniImg: luxury,
-    fullFlyer: tour_isla_luxury,
-  },
-];
+{
+  id: 1,
+  title: "Top 3 Islas",
+  price: "$510.000 COP",
+  miniImg: isla_3,
+  fullFlyer: tour_isla_3,
+  descriptionKey: "touresIslas.top3islas.description"
+},
+{
+  id: 2,
+  title: "Top 4 Islas",
+  price: "$180.000 COP",
+  miniImg: isla_4,
+  fullFlyer: tour_isla_4,
+  descriptionKey: "touresIslas.top4islas.description"
+},
+{
+  id: 3,
+  title: "Ancestral",
+  price: "$190.000 COP",
+  miniImg: ancestral,
+  fullFlyer: tour_ancestral,
+  descriptionKey: "touresIslas.ancestral.description"
+},
+{
+  id: 4,
+  title: "Palmerito",
+  price: "$230.000 COP",
+  miniImg: palmerito,
+  fullFlyer: tour_isla_palmerito,
+  descriptionKey: "touresIslas.palmerito.description"
+},
+{
+  id: 5,
+  title: "Capri Barú",
+  price: "$460.000 COP",
+  miniImg: baru,
+  fullFlyer: tour_capri_baru,
+  descriptionKey: "touresIslas.capribaru.description"
+},
+{
+  id: 6,
+  title: "Isla Fénix Plan Básico",
+  price: "$195.000 COP",
+  miniImg: fenix,
+  fullFlyer: tour_isla_fenix,
+  descriptionKey: "touresIslas.fenix.description"
+},
+{
+  id: 7,
+  title: "Isla Ibbiza Barú",
+  price: "$380.000 COP",
+  miniImg: ibbiza_baru,
+  fullFlyer: tour_ibbiza_baru,
+  descriptionKey: "touresIslas.ibbizabaru.description"
+},
+{
+  id: 8,
+  title: "Isla Múcura",
+  price: "$420.000 COP",
+  miniImg: mucura,
+  fullFlyer: tour_mucura,
+  descriptionKey: "touresIslas.mucura.description"
+},
+{
+  id: 9,
+  title: "Isla Palma",
+  price: "$420.000 COP",
+  miniImg: palmas,
+  fullFlyer: tour_isla_palmas,
+  descriptionKey: "touresIslas.palma.description"
+},
+{
+  id: 10,
+  title: "Isla Rosario Sencillo",
+  price: "$160.000 COP",
+  miniImg: rosario,
+  fullFlyer: tour_isla_rosario,
+  descriptionKey: "touresIslas.rosariosencillo.description"
+},
+{
+  id: 11,
+  title: "Isla Rosario",
+  price: "$360.000 COP",
+  miniImg: rosario,
+  fullFlyer: tour_isla_rosario2,
+  descriptionKey: "touresIslas.rosario.description"
+},
+{
+  id: 12,
+  title: "Isla Sabai",
+  price: "$480.000 COP",
+  miniImg: sabai,
+  fullFlyer: tour_isla_sabai,
+  descriptionKey: "touresIslas.sabai.description"
+},
+{
+  id: 13,
+  title: "Isla del Encanto Barú",
+  price: "$420.000 COP",
+  miniImg: encanto_baru,
+  fullFlyer: tour_isla_baru,
+  descriptionKey: "touresIslas.encantobaru.description"
+},
+{
+  id: 14,
+  title: "Cocoliso",
+  price: "$420.000 COP",
+  miniImg: cocoliso,
+  fullFlyer: tour_isla_cocoliso,
+  descriptionKey: "touresIslas.cocoliso.description"
+},
+{
+  id: 15,
+  title: "Mangata",
+  price: "$399.000 COP",
+  miniImg: mangata,
+  fullFlyer: tour_isla_mangata,
+  descriptionKey: "touresIslas.mangata.description"
+},
+{
+  id: 16,
+  title: "Luxury",
+  price: "$480.000 COP",
+  miniImg: luxury,
+  fullFlyer: tour_isla_luxury,
+  descriptionKey: "touresIslas.luxury.description"
+}
+]
+
 
 export function CategoriaIslas() {
+
+  const nuevoId = Math.max(...toursIslas.map(tour => tour.id));
   const { t } = useTranslation("global");
 
-  const [selectedFlyer, setSelectedFlyer] = useState(null);
+ const [selectedTour, setSelectedTour] = useState(null);
 
   return (
     <div>
@@ -172,10 +194,11 @@ export function CategoriaIslas() {
 
           <div className="absolute inset-0 bg-black/30" />
 
-          <div className="relative z-10 flex items-center justify-center h-full">
+          <div className="relative z-10 flex items-center justify-center h-full flex-col">
             <h1 className="text-white text-5xl md:text-7xl font-black text-center">
               {t("islas.title")}
             </h1>
+            {/*<h3 className="text-white text-2xl md:text-7xl  text-center">Contamos con {nuevoId} Toures disponibles</h3>*/}
           </div>
         </div>
 
@@ -215,7 +238,7 @@ export function CategoriaIslas() {
                 </p>
 
                 <button
-                  onClick={() => setSelectedFlyer(tour.fullFlyer)}
+                  onClick={() => setSelectedTour(tour)}
                   className="mt-5 bg-[#C5A059] hover:bg-[#af8c4c] transition text-white px-10 py-3 rounded-full font-bold"
                 >
                   {t("top.button")}
@@ -226,19 +249,74 @@ export function CategoriaIslas() {
         </section>
 
         {/* MODAL */}
-        {selectedFlyer && (
-          <div
-            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-5"
-            onClick={() => setSelectedFlyer(null)}
-          >
-            <img
-              src={selectedFlyer}
-              alt="Flyer"
-              className="max-w-full max-h-full rounded-2xl shadow-2xl"
-            />
-          </div>
+        {selectedTour && (
+               <div
+  className="fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4"
+  onClick={() => setSelectedTour(null)}
+>
+  <div
+    className="
+      relative
+      bg-white
+      rounded-2xl
+      max-w-5xl
+      w-full
+      max-h-[90vh]
+      overflow-y-auto
+    "
+    onClick={(e) => e.stopPropagation()}
+  >
+
+    <button
+      onClick={() => setSelectedTour(null)}
+      className="
+        absolute top-4 right-4
+        w-10 h-10
+        rounded-full
+        bg-white
+        shadow-lg
+        font-bold
+      "
+    >
+      ✕
+    </button>
+
+         <img
+                src={selectedTour.miniImg}
+                alt={selectedTour.title}
+                className="
+                  w-full h-full
+                  object-cover
+                  group-hover:scale-110
+                  transition duration-700
+                "
+              />
+
+    <div className="p-6">
+        <h2 className="text-3xl font-black text-[#123499]">
+        {selectedTour.title}
+      </h2>
+
+      <p className="text-[#C5A059] text-xl font-bold mt-2">
+        {selectedTour.price}
+      </p>
+
+      <p className="text-gray-700 mt-4 leading-relaxed">
+        {t(selectedTour.descriptionKey)}
+      </p>
+    <img
+      src={selectedTour.fullFlyer}
+      alt={selectedTour.title}
+      className="w-full"
+    />
+
+    </div>
+
+  </div>
+</div>
         )}
       </main>
+      <Footer/>
     </div>
   );
 }
