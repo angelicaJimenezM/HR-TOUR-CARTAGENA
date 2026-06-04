@@ -71,12 +71,12 @@
   
   "touresCity":{
      "cartagena": {
-    "description": "• Transportation: Comfortable air-conditioned tourist transportation. • Highlights: Visit Cartagena's most iconic landmarks and attractions. • Guided Experience: Professional tour guide accompanying you throughout the tour. • Refreshments: Complimentary hydration included.\n• Safety: Travel assistance card included for your peace of mind." 
+    "description": "• Transportation: Comfortable air-conditioned tourist transportation.\n• Highlights: Visit Cartagena's most iconic landmarks and attractions.\n• Guided Experience: Professional tour guide accompanying you throughout the tour.\n • Refreshments: Complimentary hydration included.\n • Safety: Travel assistance card included for your peace of mind." 
    },
    "barranquilla":{
-"description": "• Transportation: Comfortable air-conditioned tourist transportation. • Highlights: Visit the city's most iconic landmarks and attractions. • Guided Experience: Professional tour guide accompanying you throughout the journey. • Comfort: Complimentary hydration included. • Safety: Medical assistance coverage for your peace of mind."  },
+"description": "• Transportation: Comfortable air-conditioned tourist transportation.\n • Highlights: Visit the city's most iconic landmarks and attractions.\n • Guided Experience: Professional tour guide accompanying you throughout the journey.\n • Comfort: Complimentary hydration included.\n • Safety: Medical assistance coverage for your peace of mind."  },
   "santamarta":{
-"description": "• Heritage: Explore the most iconic and historic landmarks of both destinations with a guided tour. • Itinerary: Enjoy a complete panoramic journey through the highlights of both cities. • Local Experience: Discover the vibrant culture and authentic Caribbean flavors. • Photo Opportunities: Strategic stops at the best locations for unforgettable pictures. • Atmosphere: Experience a well-organized, lively, and enjoyable Caribbean adventure."  }
+"description": "• Heritage: Explore the most iconic and historic landmarks of both destinations with a guided tour.\n • Itinerary: Enjoy a complete panoramic journey through the highlights of both cities.\n • Local Experience: Discover the vibrant culture and authentic Caribbean flavors.\n • Photo Opportunities: Strategic stops at the best locations for unforgettable pictures.\n • Atmosphere: Experience a well-organized, lively, and enjoyable Caribbean adventure."  }
 },
 "touresIslas": {
   "top3islas": {
@@ -158,6 +158,14 @@
     "title": "Luxury",
     "description": "• Exclusive Access: Full entry to a premium beach club.\n• Gourmet Dining: Delicious lunch with traditional or specialty menu options.\n• Complimentary Drink: Special welcome cocktail to celebrate your day.\n• Comfort Areas: Full access to pool, beach, and relaxation zones."
   }
+},
+"reservas":{
+  "mensaje": "Hello, I would like to receive more information about the tour.",
+  "button" : "Choose this plan"
+},
+"chivas":{
+"description1": "•Panoramic tours: Enjoy the best views of the city from the comfort of the chiva bus.\n •Learn our history: A journey into the past to discover the secrets of the walled city.\n •Expert local guides: Accompaniment by professionals who know every single corner.\n •Traditional, joyful and safe atmosphere: The authentic Caribbean essence with the peace of mind you deserve.\n •Safety and comfort: Vehicle fully prepared so you can enjoy your ride worry-free.",
+"description2": "•Onboard music: Unmissable latest hits and classics to keep you singing along.\n •100% party vibe: An experience full of joy, dancing, and the absolute best energy.\n •Night tours: Enjoy the city lights and discover Cartagena like never before.\n •Routes through the best spots: Planned tour around the Walled City, the Bay, and more.\n •Guaranteed fun: Live a unique, joyful, and unforgettable experience on your vacation."
 }
 }
 

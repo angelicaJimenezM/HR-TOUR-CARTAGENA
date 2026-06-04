@@ -8,10 +8,13 @@ import city from "../assets/imagenes/portadas/city.webp";
 import cartagena from "../assets/imagenes/portadas/city/cartagena.webp";
 import barranquilla from "../assets/imagenes/portadas/city/barranquilla.webp";
 import santamarta from "../assets/imagenes/portadas/city/santamarta.webp";
+import chiva from "../assets/imagenes/portadas/city/chiva.webp";
+import chiva_rumbera from "../assets/imagenes/portadas/city/chiva-rumbera.webp";
 import tour_city_cartagena from "../assets/imagenes/tours/city-tous/tour-cartagena.webp";
 import tour_city_barranquilla from "../assets/imagenes/tours/city-tous/tour-barranquilla.webp";
 import tour_city_santamarta from "../assets/imagenes/tours/city-tous/tour-barranquilla-santamarta.webp";
-
+import tour_chiva from "../assets/imagenes/tours/city-tous/tour-chiva.webp";
+import tour_chiva_rumbera from "../assets/imagenes/tours/city-tous/tour-chiva-rumbera.webp";
 const toursCity = [
   {
     id: 1,
@@ -37,7 +40,22 @@ const toursCity = [
     fullFlyer: tour_city_santamarta,
      descriptionKey:"touresCity.cartagena.description"
   },
-
+  {
+    id: 4,
+    title: "City Tour chiva",
+    price: "$55.000 COP",
+    miniImg: chiva,
+    fullFlyer: tour_chiva,
+     descriptionKey:"touresCity.chivas.description1"
+  },
+    {
+    id: 5,
+    title: "City Tour chiva Rumbera",
+    price: "$55.000 COP",
+    miniImg: chiva_rumbera,
+    fullFlyer: tour_chiva_rumbera,
+     descriptionKey:"touresCity.chivas.description2"
+  }
 ];
 
 export function CategoriaCity() {
@@ -168,7 +186,7 @@ export function CategoriaCity() {
         {selectedTour.price}
       </p>
 
-      <p className="text-gray-700 mt-4 leading-relaxed">
+      <p className="text-gray-700 mt-4 whitespace-pre-line leading-relaxed">
         {t(selectedTour.descriptionKey)}
       </p>
     <img

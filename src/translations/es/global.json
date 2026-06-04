@@ -68,13 +68,13 @@
   },
     "touresCity":{
      "cartagena": {
-    "description": "• Transportation: Comfortable air-conditioned tourist transportation. • Highlights: Visit Cartagena's most iconic landmarks and attractions. • Guided Experience: Professional tour guide accompanying you throughout the tour. • Refreshments: Complimentary hydration included.\n• Safety: Travel assistance card included for your peace of mind." 
+"description": "• Transporte: Cómodo transporte turístico con aire acondicionado.\n • Lugares destacados: Visita los monumentos y atracciones más emblemáticos de Cartagena.\n • Experiencia guiada: Guía profesional acompañándote durante todo el recorrido.\n • Refrigerio: Hidratación de cortesía incluida.\n • Seguridad: Tarjeta de asistencia al viajero incluida para tu tranquilidad."
    },
    "barranquilla":{
-    "description": "• Transporte: Transporte turístico climatizado y confortable. • Itinerario: Recorrido planificado por los principales atractivos y puntos de interés de la ciudad. • Acompañamiento: Guía profesional acompañante durante todo el trayecto. • Bienestar: Hidratación incluida para el recorrido. • Seguridad: Cobertura con tarjeta de asistencia médica." 
+    "description": "• Transporte: Transporte turístico climatizado y confortable.\n • Itinerario: Recorrido planificado por los principales atractivos y puntos de interés de la ciudad.\n • Acompañamiento: Guía profesional acompañante durante todo el trayecto.\n • Bienestar: Hidratación incluida para el recorrido.\n • Seguridad: Cobertura con tarjeta de asistencia médica." 
   },
   "santamarta":{
-    "description": "• Patrimonio: Visita guiada a los monumentos más icónicos e históricos de ambos destinos. • Itinerario: Recorrido panorámico completo por las zonas clave de las dos ciudades. • Experiencia local: Inmersión en la cultura viva y la gastronomía tradicional caribeña. • Recuerdos: Paradas estratégicas diseñadas para capturar fotos increíbles. • Entorno: Disfrute de un ambiente turístico organizado, dinámico y divertido." 
+    "description": "• Patrimonio: Visita guiada a los monumentos más icónicos e históricos de ambos destinos.\n • Itinerario: Recorrido panorámico completo por las zonas clave de las dos ciudades.\n • Experiencia local: Inmersión en la cultura viva y la gastronomía tradicional caribeña.\n • Recuerdos: Paradas estratégicas diseñadas para capturar fotos increíbles.\n • Entorno: Disfrute de un ambiente turístico organizado, dinámico y divertido." 
   }
 },
    "touresIslas":{
@@ -158,5 +158,13 @@
     "description": "• Acceso exclusivo: Ingreso completo a un club de playa con instalaciones premium.\n• Gastronomía gourmet: Almuerzo delicioso con opciones de menú típico o especial.\n• Bebida de cortesía: Cóctel de bienvenida especial para brindar por tu día.\n• Zonas de confort: Acceso total a piscina, playa y áreas de máximo confort y relajación."
   }
  
+},
+"reservas":{
+  "mensaje": "Hola, me gustaría recibir más información sobre el tour.",
+  "button" : "Elegir este plan"
+},
+"chivas":{
+  "description1":"•Recorridos panorámicos: Disfruta de las mejores vistas de la ciudad desde la comodidad de la chiva.\n •Conoce nuestra historia: Un viaje al pasado para descubrir los secretos de la ciudad amurallada.\n •Guías locales expertos: Acompañamiento por profesionales que conocen cada rincón.\n •Ambiente típico, alegre y seguro: La auténtica esencia caribeña con la tranquilidad que mereces.\n •Seguridad y comodidad: Vehículo acondicionado para que disfrutes sin preocupaciones.", 
+  "description2": "•Música a bordo: Éxitos del momento y clásicos infaltables para no parar de cantar.\n •Ambiente 100% rumbero: Una experiencia llena de alegría, baile y la mejor buena energía.\n •Recorridos nocturnos: Disfruta de las luces de la ciudad y conoce Cartagena como nunca antes.\n •Rutas por los mejores lugares: Recorrido planificado por la Ciudad Amurallada, la Bahía y más.\n •Diversión garantizada: Vive una experiencia única, alegre e inolvidable en tus vacaciones."
 }
 } 

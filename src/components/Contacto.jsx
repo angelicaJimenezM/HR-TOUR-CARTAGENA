@@ -52,7 +52,7 @@ export function Contacto() {
     text-sm
   "
 >
-  Reserva Ahora
+  Recibir asesoría
 </h1>
 
     </div>

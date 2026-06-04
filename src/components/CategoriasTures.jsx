@@ -12,9 +12,15 @@ import tour_mucura from '../assets/imagenes/tours/islas/isla-mucura.webp'
 import cartagena from "../assets/imagenes/portadas/city/cartagena.webp";
 import barranquilla from "../assets/imagenes/portadas/city/barranquilla.webp";
 import santamarta from "../assets/imagenes/portadas/city/santamarta.webp";
+import chiva from "../assets/imagenes/portadas/city/chiva.webp";
+import chiva_rumbera from "../assets/imagenes/portadas/city/chiva-rumbera.webp";
 import tour_city_cartagena from "../assets/imagenes/tours/city-tous/tour-cartagena.webp";
 import tour_city_barranquilla from "../assets/imagenes/tours/city-tous/tour-barranquilla.webp";
 import tour_city_santamarta from "../assets/imagenes/tours/city-tous/tour-barranquilla-santamarta.webp";
+import tour_chiva from "../assets/imagenes/tours/city-tous/tour-chiva.webp";
+import tour_chiva_rumbera from "../assets/imagenes/tours/city-tous/tour-chiva-rumbera.webp";
+
+
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -43,6 +49,22 @@ const toursCity = [
     fullFlyer: tour_city_santamarta,
      descriptionKey:"touresCity.santamarta.description"
   },
+ {
+    id: 4,
+    title: "City Tour chiva",
+    price: "$55.000 COP",
+    miniImg: chiva,
+    fullFlyer: tour_chiva,
+     descriptionKey:"touresCity.chivas.description1"
+  },
+    {
+    id: 5,
+    title: "City Tour chiva Rumbera",
+    price: "$55.000 COP",
+    miniImg: chiva_rumbera,
+    fullFlyer: tour_chiva_rumbera,
+     descriptionKey:"touresCity.chivas.description2"
+  }
 ];
 
 const toursIslas = [
@@ -451,7 +473,7 @@ const [selectedTour, setSelectedTour] = useState(null);
         {selectedTour.price}
       </p>
 
-      <p className="text-gray-700 mt-4 leading-relaxed">
+      <p className="text-gray-700 mt-4 whitespace-pre-line leading-relaxed">
         {t(selectedTour.descriptionKey)}
       </p>
     <img
@@ -461,7 +483,30 @@ const [selectedTour, setSelectedTour] = useState(null);
     />
 
     </div>
-
+<a
+  href={`https://wa.me/573174849442?text=${encodeURIComponent(
+    `${t("reservas.mensaje")} ${selectedTour.title}.`
+  )}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    flex
+    justify-center
+    items-center
+    w-fit
+    mx-auto
+    bg-[#C5A059]
+    text-white
+    font-bold
+    px-6
+    py-3
+    rounded-xl
+    transition
+    hover:scale-105
+  "
+>
+  {t("reservas.button")}
+</a>
   </div>
 </div>
 

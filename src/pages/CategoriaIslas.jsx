@@ -301,7 +301,7 @@ export function CategoriaIslas() {
         {selectedTour.price}
       </p>
 
-      <p className="text-gray-700 mt-4 leading-relaxed">
+      <p className="text-gray-700 mt-4 whitespace-pre-line leading-relaxed">
         {t(selectedTour.descriptionKey)}
       </p>
     <img
