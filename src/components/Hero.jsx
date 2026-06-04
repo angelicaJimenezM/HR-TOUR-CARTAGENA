@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
 import reloj from '../assets/imagenes/reloj.webp';
 import pao_pao from '../assets/imagenes/portadas/pao-pao.webp';
-import mucura from '../assets/imagenes/portadas/mucura.webp';
+import costa from '../assets/imagenes/portadas/costa-cartagena.jpg';
 import bahia from '../assets/imagenes/portadas/bahia.webp';
 import {useTranslation} from "react-i18next"
 
@@ -14,7 +14,7 @@ const HERO =[
     src: reloj
   },
   {
-    src: mucura
+    src: costa
   },
   {
     src: pao_pao
@@ -52,7 +52,21 @@ useEffect(() => {
         transition={{ duration: 0.8 }}
         className="absolute inset-0 w-full h-full"
       >
-        <img src={tour.src} alt="" className="w-full h-full object-cover object-center" />
+        <div className="absolute inset-0">
+  {/* Fondo difuminado */}
+  <img
+    src={tour.src}
+    alt=""
+    className="absolute inset-0 w-full h-full object-cover blur-xl scale-110"
+  />
+
+  {/* Imagen principal */}
+  <img
+    src={tour.src}
+    alt=""
+    className="relative w-full h-full object-contain"
+  />
+</div>
         {/* Gradiente oscuro para que el texto resalte */}
         <div className="absolute inset-0 bg-gradient-to-t  from-black/70 via-black/30 to-transparent" />
       </motion.div>

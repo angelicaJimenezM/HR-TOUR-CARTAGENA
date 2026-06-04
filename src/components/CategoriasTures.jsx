@@ -6,7 +6,7 @@ import rosario from '../assets/imagenes/portadas/islas/isla-rosario.webp'
 import mucura from '../assets/imagenes/portadas/islas/mucura.webp'
 import tour_isla from '../assets/imagenes/tours/islas/3-islas.webp'
 import tour_palmas from '../assets/imagenes/tours/islas/isla-palmas.webp'
-import tour_bora_vip from '../assets/imagenes/tours/borabora.webp'
+import rosari_secillo from '../assets/imagenes/tours/islas/isla-rosario.webp'
 import tour_luxury from '../assets/imagenes/tours/islas/isla-luxury.webp'
 import tour_mucura from '../assets/imagenes/tours/islas/isla-mucura.webp'
 import cartagena from "../assets/imagenes/portadas/city/cartagena.webp";
@@ -36,7 +36,7 @@ const toursCity = [
   {
     id: 2,
     title: "City Tour Barranquilla",
-    price: "$150.000 COP",
+    price: "$220.000 COP",
     miniImg: barranquilla,
     fullFlyer: tour_city_barranquilla,
       descriptionKey:"touresCity.barranquilla.description"
@@ -98,7 +98,7 @@ const toursIslas = [
     title: "Islas de Rosario sencillo",
     price: "$160.000 COP",
     miniImg: rosario,
-    fullFlyer: tour_bora_vip,
+    fullFlyer: rosari_secillo,
     descriptionKey:"touresIslas.rosario.description"
 
   },
@@ -124,7 +124,7 @@ const [selectedTour, setSelectedTour] = useState(null);
 
       {/* ================= ISLAS ================= */}
 
-      <section id='tours-islas' className='py-20'>
+      <section id='tours-islas' className='py-5'>
 
         <h2 className="text-3xl md:text-4xl font-black text-[#123499] text-center mb-10">
           {t("subtoures.category")}
@@ -273,7 +273,7 @@ const [selectedTour, setSelectedTour] = useState(null);
 
       {/* ================= CITY TOURS ================= */}
 
-      <section id='tours-city' className='py-20'>
+      <section id='tours-city' className='py-14'>
 
         <div className='flex items-center justify-between mb-6 px-2'>
 

@@ -27,7 +27,7 @@ const toursCity = [
   {
     id: 2,
     title: "City Tour Barranquilla",
-    price: "$150.000 COP",
+    price: "$220.000 COP",
     miniImg: barranquilla,
     fullFlyer: tour_city_barranquilla,
              descriptionKey:"touresCity.cartagena.description"
@@ -196,7 +196,30 @@ export function CategoriaCity() {
     />
 
     </div>
-
+          <a
+  href={`https://wa.me/573174849442?text=${encodeURIComponent(
+    `${t("reservas.mensaje")} ${selectedTour.title}.`
+  )}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    flex
+    justify-center
+    items-center
+    w-fit
+    mx-auto
+    bg-[#C5A059]
+    text-white
+    font-bold
+    px-6
+    py-3
+    rounded-xl
+    transition
+    hover:scale-105
+  "
+>
+  {t("reservas.button")}
+</a>
   </div>
 </div>
         )}

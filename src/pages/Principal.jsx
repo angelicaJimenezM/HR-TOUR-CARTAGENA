@@ -8,6 +8,7 @@ import {useTranslation} from "react-i18next";
 import { Contacto } from '../components/Contacto.jsx'
 import { Footer } from '../components/Footer.jsx'
 import { Top } from '../components/Top.jsx'
+import { Oferta } from '../components/Oferta.jsx'
 import { CategoriasTures } from '../components/CategoriasTures.jsx'
 
 
@@ -28,7 +29,7 @@ const [t, i18n] = useTranslation("global")
       <Header/>
 
       <main className='pt-16'>
-
+          <Oferta/>
         {/* HERO CAROUSEL */}
        <Hero />
 

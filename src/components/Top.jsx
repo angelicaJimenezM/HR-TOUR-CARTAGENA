@@ -223,6 +223,30 @@ export function Top() {
                 {t(selectedFlyer.descriptionKey)}
               </p>
             </div>
+            <a
+  href={`https://wa.me/573174849442?text=${encodeURIComponent(
+    `${t("reservas.mensaje")} ${selectedFlyer.title}.`
+  )}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    flex
+    justify-center
+    items-center
+    w-fit
+    mx-auto
+    bg-[#C5A059]
+    text-white
+    font-bold
+    px-6
+    py-3
+    rounded-xl
+    transition
+    hover:scale-105
+  "
+>
+  {t("reservas.button")}
+</a>
           </div>
         </div>
       )}
