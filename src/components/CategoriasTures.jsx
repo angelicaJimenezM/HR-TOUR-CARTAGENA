@@ -55,7 +55,7 @@ const toursCity = [
     price: "$55.000 COP",
     miniImg: chiva,
     fullFlyer: tour_chiva,
-     descriptionKey:"touresCity.chivas.description1"
+     descriptionKey:"chivas.description1"
   },
     {
     id: 5,
@@ -63,7 +63,7 @@ const toursCity = [
     price: "$55.000 COP",
     miniImg: chiva_rumbera,
     fullFlyer: tour_chiva_rumbera,
-     descriptionKey:"touresCity.chivas.description2"
+     descriptionKey:"chivas.description2"
   }
 ];
 

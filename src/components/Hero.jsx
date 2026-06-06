@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
-import reloj from '../assets/imagenes/reloj.webp';
-import pao_pao from '../assets/imagenes/portadas/pao-pao.webp';
-import costa from '../assets/imagenes/portadas/costa-cartagena.jpg';
-import bahia from '../assets/imagenes/portadas/bahia.webp';
+import reloj from '../assets/imagenes/portadas/hero/reloj.webp';
+import pao_pao from '../assets/imagenes/portadas/hero/pao-pao.webp';
+import costa from '../assets/imagenes/portadas/hero/costa-cartagena.webp';
+import bahia from '../assets/imagenes/portadas/hero/bahia.webp';
 import {useTranslation} from "react-i18next"
 
 

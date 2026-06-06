@@ -169,5 +169,11 @@
 },
 "oferta":{
   "title": "¡Escápate al Caribe con HR Tours!"
+},
+"testimonios": {
+  "gisela": "La atención fue excelente y el guía hizo que la experiencia fuera inolvidable.",
+  "nathaniel": "Las islas son espectaculares. Todo estuvo muy bien organizado.",
+  "aliette": "Mi familia disfrutó muchísimo el recorrido.",
+  "florencia": "Una experiencia que repetiría sin pensarlo."
 }
 } 

@@ -169,6 +169,13 @@
 },
 "oferta":{
   "title": "Escape to the Caribbean with HR Tours!"
+},
+
+"testimonios": {
+  "gisela": "The service was excellent and the guide made the experience unforgettable.",
+  "nathaniel": "The islands are spectacular. Everything was very well organized.",
+  "aliette": "My family thoroughly enjoyed the tour.",
+  "florencia": "An experience I would repeat without hesitation."
 }
 }
 

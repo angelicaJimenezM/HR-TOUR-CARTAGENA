@@ -10,7 +10,7 @@ import { Footer } from '../components/Footer.jsx'
 import { Top } from '../components/Top.jsx'
 import { Oferta } from '../components/Oferta.jsx'
 import { CategoriasTures } from '../components/CategoriasTures.jsx'
-
+import { Testimonios } from '../components/Testimonios.jsx';
 
 
 export function Principal() {
@@ -39,10 +39,10 @@ const [t, i18n] = useTranslation("global")
 
       {/*seccion de top */}
        <Top/>
-      
         {/* SECCIÓN DE TURES (GRID) */}
       
         <CategoriasTures/>
+      <Testimonios/>
 
 
 

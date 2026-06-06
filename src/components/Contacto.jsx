@@ -8,8 +8,8 @@ export function Contacto() {
     <div
       className="
         fixed
-        bottom-10
-        right-3
+        bottom-1
+        right-0
         z-50
 
         flex  flex-col items-center gap-3

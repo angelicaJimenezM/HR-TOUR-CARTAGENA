@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Header } from "../components/Header";
 import { Contacto } from "../components/Contacto";
 import { Footer } from "../components/Footer";
-import p_islas from "../assets/imagenes/portadas/p_islas.webp";
+import p_islas from "../assets/imagenes/portadas/hero/p_islas.webp";
 import rosario from "../assets/imagenes/portadas/islas/isla-rosario.webp";
 import mucura from "../assets/imagenes/portadas/islas/mucura.webp";
 import palmas from "../assets/imagenes/portadas/islas/palmas.webp";
@@ -187,12 +187,18 @@ export function CategoriaIslas() {
         {/* HERO */}
         <div className="relative w-full h-[80vh] sm:h-[100vh] overflow-hidden">
           <img
+             src={p_islas}
+             alt=""
+             className="absolute inset-0 w-full h-full object-cover blur-xl scale-110"
+           />
+          <img
             src={p_islas}
             alt="Islas"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-contain"
           />
 
-          <div className="absolute inset-0 bg-black/30" />
+ 
+          <div className="absolute inset-0 bg-black/20" />
 
           <div className="relative z-10 flex items-center justify-center h-full flex-col">
             <h1 className="text-white text-5xl md:text-7xl font-black text-center">

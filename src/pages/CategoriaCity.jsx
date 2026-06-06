@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Header } from "../components/Header";
 import { Contacto } from "../components/Contacto";
 import { Footer } from "../components/Footer";
-import p_islas from "../assets/imagenes/portadas/p_islas.webp";
-import city from "../assets/imagenes/portadas/city.webp";
+import p_islas from "../assets/imagenes/portadas/hero/p_islas.webp";
+import city from "../assets/imagenes/portadas/hero/city.webp";
 import cartagena from "../assets/imagenes/portadas/city/cartagena.webp";
 import barranquilla from "../assets/imagenes/portadas/city/barranquilla.webp";
 import santamarta from "../assets/imagenes/portadas/city/santamarta.webp";
@@ -46,7 +46,7 @@ const toursCity = [
     price: "$55.000 COP",
     miniImg: chiva,
     fullFlyer: tour_chiva,
-     descriptionKey:"touresCity.chivas.description1"
+     descriptionKey:"chivas.description1"
   },
     {
     id: 5,
@@ -54,7 +54,7 @@ const toursCity = [
     price: "$55.000 COP",
     miniImg: chiva_rumbera,
     fullFlyer: tour_chiva_rumbera,
-     descriptionKey:"touresCity.chivas.description2"
+     descriptionKey:"chivas.description2"
   }
 ];
 
@@ -72,12 +72,17 @@ export function CategoriaCity() {
 
         {/* HERO */}
         <div className="relative w-full h-[80vh] sm:h-[100vh] overflow-hidden">
-          <img
-            src={city}
-            alt="Islas"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-
+           <img
+                      src={city}
+                      alt=""
+                      className="absolute inset-0 w-full h-full object-cover blur-xl scale-110"
+                    />
+                   <img
+                     src={city}
+                     alt="Islas"
+                     className="absolute inset-0 w-full h-full object-contain"
+                   />
+         
           <div className="absolute inset-0 bg-black/30" />
 
           <div className="relative z-10 flex items-center justify-center h-full">
