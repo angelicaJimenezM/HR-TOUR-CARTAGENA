@@ -1,179 +1,249 @@
 {
   "header": {
-    
-      "about": "Quienes Somos",
-      "contact": "Redes y Contacto",
-      "destinations": "Nuestros Destinos"
-    },
-
-
-
-    "hero": {
-    "experto": "VIVE CARTAGENA CON EXPERTOS",
-    "relax": "DISFRUTA SIN PREOCUPACIONES",
-    "recuerdos": "CONVIERTE VIAJES EN RECUERDOS UNICOS",
-    "confianza": "CONFIA EN HR TOURS CARTAGENA"
+    "about": "Nosotros",
+    "contact": "Redes y Contacto",
+    "destinations": "Nuestros destinos"
   },
-
-  
+  "hero": {
+    "experto": "VIVE CARTAGENA CON EXPERTOS"
+  },
   "footer": {
     "title": "Nuestras Redes y Contacto",
-    "subtitle": "Síguenos en nuestras redes sociales y Contactanos",
+    "subtitle": "Síguenos en nuestras redes sociales y contáctanos",
     "rights-reserved": "© 2026 HR Tours Cartagena. Todos los derechos reservados."
   },
-
-
   "aboutus": {
-    "subtitle": "Pasión por Cartagena",
-    "description1": "En HR Tours Cartagena, diseñamos recuerdos que perduran. Combinamos la calidez local con la eficiencia técnica para que disfrutes sin preocupaciones.",
+    "title": "Nuestra Historia",
+    "subtitle": "Pasión por",
+    "heroDescription": "Descubre la magia, cultura y playas de Cartagena con itinerarios exclusivos diseñados para tu comodidad.",
+    "historyDescription": "Nacimos de la pasión por mostrar la autenticidad, cultura y paisajes del Caribe colombiano. En HR Tours Cartagena transformamos cada viaje en un recorrido inolvidable, respaldado por un equipo local comprometido con la excelencia.",
+    "mission": {
+      "title": "Nuestra Misión",
+      "description": "Brindar experiencias de viaje inolvidables a través de un servicio personalizado, seguro y eficiente que resalte lo mejor de Cartagena y sus islas."
+    },
+    "vision": {
+      "title": "Nuestra Visión",
+      "description": "Ser la agencia de viajes líder en la región, reconocida por nuestra calidez excepcional, tours innovadores y la confianza de nuestros viajeros."
+    },
+    "quote": {
+      "title": "Experiencias que se convierten en recuerdos.",
+      "description": "Descubre destinos, vive nuestra cultura y disfruta Cartagena de manera auténtica."
+    },
+    "video": {
+      "subtitle": "VIVE LA EXPERIENCIA",
+      "title": "Esto es HR Tours"
+    },
     "features": {
-      "tours": "Tours Exclusivos",
-      "quality": "Calidad Recomendada"
+      "subtitle": "¿POR QUÉ ELEGIRNOS?",
+      "title": "Más que un tour",
+      "card1": {
+        "title": "Experiencias locales",
+        "description": "Descubre lugares y experiencias desde una perspectiva auténtica."
+      },
+      "card2": {
+        "title": "Destinos increíbles",
+        "description": "Cartagena, islas, playas y mucho más por descubrir."
+      },
+      "card3": {
+        "title": "Atención personalizada",
+        "description": "Te acompañamos para que disfrutes sin preocupaciones."
+      },
+      "card4": {
+        "title": "Recuerdos memorables",
+        "description": "Queremos que cada viaje se convierta en una historia que recordarás para siempre."
+      }
+    },
+    "cta": {
+      "title": "Tu próxima aventura comienza aquí.",
+      "description": "Descubre nuestras experiencias y encuentra el tour perfecto para ti.",
+      "button": "Ver nuestros tours"
     }
   },
-
-
-   "top": {
-   "title": "Tours Más Reservados",
-       "button": "Ver mas...",
+  "top": {
+    "title": "Tours Más Reservados",
+    "button": "Más...",
     "tres": {
-    "nombre": "tres islas",
-    "descripcion": "desconecta del estres y conecta con el paraiso."
+      "nombre": "Tres Islas",
+      "descripcion": "Desconecta del estrés y conecta con el paraíso."
+    },
+    "pao": {
+      "nombre": "Tour a Pao Pao",
+      "descripcion": "Hotel y restaurante con piscina de agua dulce, actividades diarias de bienestar y snorkel guiado incluido."
+    },
+    "mucura": {
+      "nombre": "Tour Isla Múcura",
+      "descripcion": "Escápate a aguas cristalinas con almuerzo premium caribeño y acceso completo a zonas sociales y de juegos."
+    }
   },
- 
-  "mucura": {
-    "nombre": "Tour Isla Múcura",
-    "descripcion": "Escápate a aguas cristalinas con almuerzo premium caribeño y acceso completo a zonas sociales y de juegos."
-  }
-},
- 
-"languages": {
-  
+  "languages": {
     "language": "Idiomas"
   },
-
   "subtoures": {
-    "category" : "Categoria de toures",
-    "islass": "islas"
+    "category": "Categoría de Tours",
+    "islass": "Islas"
   },
   "islas": {
-    "title": "Categoria Islas",
+    "title": "Pasadías Marítimos",
     "subtitle": "¿Listo para el viaje de tus sueños?",
-    "text": "Tu aventura caribeña empieza aquí. Descubre playas de en sueño, aguas cristalinas y el descanso que te mereces, reserva tu lugar en el paraíso hoy mismo"
+    "text": "Tu aventura caribeña comienza aquí. Descubre playas de ensueño, aguas cristalinas y el descanso que te mereces. Reserva tu lugar en el paraíso hoy."
   },
   "city": {
-    "title": "Categoria Ciudad",
+    "title": "Categoría Ciudad",
     "subtitle": "Vive la ciudad, no solo la visites.",
-    "text": "Deja atrás los caminos típicos y sumérgete en el ritmo real de las calles. Desde monumentos imponentes hasta los rincones ocultos más fotogénicos, diseñamos rutas para que sientas la energía local en la piel. ¿Listo para descubrir tu próximo lugar favorito?"
+    "text": "Deja atrás los caminos típicos y sumérgete en el ritmo real de sus calles. Desde imponentes monumentos hasta los rincones más fotogénicos, diseñamos rutas para que sientas la energía local. ¿Listo para descubrir tu próximo lugar favorito?"
   },
-    "touresCity":{
-     "cartagena": {
-"description": "• Transporte: Cómodo transporte turístico con aire acondicionado.\n • Lugares destacados: Visita los monumentos y atracciones más emblemáticos de Cartagena.\n • Experiencia guiada: Guía profesional acompañándote durante todo el recorrido.\n • Refrigerio: Hidratación de cortesía incluida.\n • Seguridad: Tarjeta de asistencia al viajero incluida para tu tranquilidad."
-   },
-   "barranquilla":{
-    "description": "• Transporte: Transporte turístico climatizado y confortable.\n • Itinerario: Recorrido planificado por los principales atractivos y puntos de interés de la ciudad.\n • Acompañamiento: Guía profesional acompañante durante todo el trayecto.\n • Bienestar: Hidratación incluida para el recorrido.\n • Seguridad: Cobertura con tarjeta de asistencia médica." 
+  "reservas": {
+    "mensaje": "Hola, me gustaría recibir más información sobre el tour.",
+    "button1": "Elegir este plan",
+    "button2": "Compartir tour",
+    "button3": "Confirmar Reserva",
+    "tarifaAdulto": "Tarifa Adulto:",
+    "tarifaNiños": "Tarifa Niños",
+    "noAplica": "* No aplica tarifa especial de niños para este tour (tarifa única).",
+    "nombrePersona": "Nombre de la persona",
+    "documento": "Número de documento",
+    "celular": "Número de celular",
+    "pais": "País de origen",
+    "fecha": "Fecha",
+    "hora": "Hora",
+    "aviso": "* Por favor recuerda realizar tu reserva con al menos 24 horas de anticipación.",
+    "adulto": "Adulto",
+    "niños": "Niños",
+    "saldoT": "Saldo Total",
+    "personas": "personas",
+    "tarifaR": "Tarifa Regular:",
+    "TarifaE": "Tarifa Especial:",
+    "rango": "Los niños fuera de este rango de edad pagarán la tarifa regular de adulto",
+    "calificacionNiños": "Calificación de niños",
+    "cuantosNiños": "Cuántos niños",
+    "años": "años de edad"
   },
-  "santamarta":{
-    "description": "• Patrimonio: Visita guiada a los monumentos más icónicos e históricos de ambos destinos.\n • Itinerario: Recorrido panorámico completo por las zonas clave de las dos ciudades.\n • Experiencia local: Inmersión en la cultura viva y la gastronomía tradicional caribeña.\n • Recuerdos: Paradas estratégicas diseñadas para capturar fotos increíbles.\n • Entorno: Disfrute de un ambiente turístico organizado, dinámico y divertido." 
+  "oferta": {
+    "title": "¡Escápate al Caribe con HR Tours!"
+  },
+  "testimonios": {
+    "ejemplofrom": "El tour fue una gran experiencia...",
+    "title": "Historias de nuestros viajeros",
+    "text": "Experiencias reales de personas que vivieron Cartagena, sus islas y sus mejores aventuras con nosotros.",
+    "fromTitulo": "Dános tu opinión",
+    "fromSeleccionaTour": "Selecciona el tour",
+    "fromelige": "Elige un tour",
+    "fromNombre": "Nombre",
+    "fromPais": "País de origen",
+    "fromFoto": "Tu Foto (Opcional)",
+    "fromReseña": "Reseña",
+    "fromEstrellas": "Califícanos",
+    "butomResenia": "Enviar reseña"
+  },
+  "estadisticas": {
+    "title": "¿Por qué elegir HR Tours Cartagena?",
+    "text": "Más que vender tours, creamos experiencias seguras, cómodas e inolvidables para que disfrutes Cartagena sin preocupaciones.",
+    "tituloCalidad": "Tours Recomendados",
+    "tituloTransporte": "Transporte Privado",
+    "tituloHospedaje": "Hospedaje",
+    "tituloCertificados": "Operadores Certificados",
+    "recomendados": "Reseñas verificadas, experiencias de calidad y toda la información que necesitas para reservar con confianza.",
+    "transporte": "Servicios de transporte marítimo y terrestre diseñados para viajar con comodidad y seguridad durante todo tu viaje.",
+    "hospedaje": "Hoteles y apartamentos seleccionados cuidadosamente para adaptarse a diferentes presupuestos y estilos de viaje.",
+    "certificados": "Trabajamos con operadores turísticos autorizados en destinos como Islas del Rosario, Barú, Punta Arena y otros lugares populares."
+  },
+  "preguntas": {
+    "titulo": "Preguntas Frecuentes",
+    "items": [
+      {
+        "id": 1,
+        "pregunta": "¿Cómo puedo reservar un tour?",
+        "respuesta": "Puedes reservar directamente a través de nuestro botón de WhatsApp. Nuestro equipo te asistirá con la disponibilidad, proceso de pago y todos los detalles necesarios para tu experiencia."
+      },
+      {
+        "id": 2,
+        "pregunta": "¿Con cuánta anticipación debo reservar?",
+        "respuesta": "Recomendamos reservar con al menos 24 horas de anticipación. En temporadas altas, algunos tours pueden agotarse rápidamente."
+      },
+      {
+        "id": 3,
+        "pregunta": "¿Puedo reservar para grupos grandes?",
+        "respuesta": "¡Sí! Organizamos experiencias para parejas, familias, grupos de amigos, eventos corporativos y ocasiones especiales."
+      },
+      {
+        "id": 4,
+        "pregunta": "¿Debo pagar la totalidad por adelantado?",
+        "respuesta": "Dependiendo del tour, se puede requerir un anticipo para garantizar la reserva. Nuestro equipo te informará sobre las condiciones específicas de cada experiencia."
+      },
+      {
+        "id": 5,
+        "pregunta": "¿Qué está incluido en el precio del tour?",
+        "respuesta": "Cada tour incluye servicios diferentes. Encontrarás información detallada sobre transporte, comidas, actividades y otros beneficios en la descripción de cada experiencia."
+      },
+      {
+        "id": 6,
+        "pregunta": "¿Los tours incluyen transporte?",
+        "respuesta": "Muchos de nuestros tours incluyen transporte terrestre o marítimo. Por favor, consulta los detalles específicos de cada tour."
+      },
+      {
+        "id": 7,
+        "pregunta": "¿Puedo llevar niños?",
+        "respuesta": "Sí. Muchos de nuestros tours son aptos para familias. Si viajas con niños pequeños, contáctanos y te recomendaremos las mejores opciones."
+      }
+    ]
+  },
+  "politicaPrivacidad": {
+    "titulo": "Política de Privacidad y Tratamiento de Datos Personales",
+    "ultimaActualizacion": "Última actualización: Septiembre de 2026",
+    "seccion1": {
+      "titulo": "1. Identificación del Responsable del Tratamiento",
+      "descripcion": "HR Tours Cartagena, identificada y domiciliada en Cartagena de Indias, Colombia, es la responsable del tratamiento de los datos personales recolectados a través de este sitio web.",
+      "ciudadEtiqueta": "Ciudad",
+      "ciudadValor": "Cartagena de Indias, Bolívar, Colombia",
+      "correoEtiqueta": "Correo electrónico",
+      "sitioEtiqueta": "Sitio Web"
+    },
+    "seccion2": {
+      "titulo": "2. Datos Personales que Recolectamos",
+      "descripcion": "A través de nuestros formularios de reserva, cotización, contacto y chat directo (WhatsApp), podemos solicitar la siguiente información:",
+      "item1": "Nombre completo y datos de identificación.",
+      "item2": "Correo electrónico y número de teléfono / WhatsApp.",
+      "item3": "Nacionalidad e idioma de preferencia.",
+      "item4": "Fechas de viaje, detalles de reservas, alojamientos y requerimientos especiales para los tours.",
+      "item5": "Datos de navegación (cookies, dirección IP y analítica web)."
+    },
+    "seccion3": {
+      "titulo": "3. Finalidad del Tratamiento de Datos",
+      "descripcion": "Los datos recolectados se utilizan exclusivamente para:",
+      "item1": "Gestionar, confirmar y prestar los servicios turísticos y pasadías solicitados.",
+      "item2": "Responder a consultas, cotizaciones y brindar atención al cliente personalizada.",
+      "item3": "Enviar confirmaciones de reserva, itinerarios y recomendaciones de viaje.",
+      "item4": "Procesar pagos y validar la seguridad de las transacciones.",
+      "item5": "Cumplir con requerimientos legales de las autoridades turísticas y fiscales de Colombia.",
+      "item6": "Mejorar la experiencia de navegación en nuestro sitio web mediante analítica anónima."
+    },
+    "seccion4": {
+      "titulo": "4. Derechos de los Titulares (Ley 1581 de 2012 / Habeas Data)",
+      "descripcion": "Como titular de los datos personales, tienes derecho a:",
+      "item1": "Conocer, actualizar y rectificar tus datos personales en cualquier momento.",
+      "item2": "Solicitar prueba de la autorización otorgada para el tratamiento de tus datos.",
+      "item3": "Ser informado sobre el uso que se le ha dado a tu información.",
+      "item4": "Revocar la autorización o solicitar la supresión de tus datos cuando no exista un deber legal o contractual de mantenerlos.",
+      "item5": "Presentar quejas ante la Superintendencia de Industria y Comercio (SIC) de Colombia en caso de infracciones a la ley."
+    },
+    "seccion5": {
+      "titulo": "5. Servicios de Terceros y WhatsApp",
+      "descripcion": "Nuestro sitio web incluye accesos directos a WhatsApp para facilitar la comunicación inmediata. Al hacer clic en estos enlaces, serás redirigido a la plataforma de WhatsApp (Meta), la cual se rige bajo sus propias políticas de privacidad. No vendemos ni compartimos tu información personal con terceros con fines publicitarios ajenos a HR Tours Cartagena."
+    },
+    "seccion6": {
+      "titulo": "6. Uso de Cookies",
+      "descripcion": "Utilizamos cookies técnicas y de analítica (como Google Analytics) para entender cómo interactúan los visitantes con la página y mejorar la experiencia de usuario. Puedes desactivar el uso de cookies desde la configuración de tu navegador en cualquier momento."
+    },
+    "seccion7": {
+      "titulo": "7. Atención de Consultas y Reclamos",
+      "descripcionPre": "Para ejercer tus derechos de acceso, actualización, rectificación o supresión de datos, puedes enviar una solicitud a nuestro correo de contacto especificando el asunto",
+      "asunto": "Tratamiento de Datos Personales"
+    }
+  },
+  "modalExito": {
+    "titulo": "¡Reserva Realizada con Éxito!",
+    "mensajeParte1": "Hemos registrado la información de tu experiencia para",
+    "mensajeParte2": "Muy pronto uno de nuestros asesores de HR Tours Cartagena se pondrá en contacto contigo a través de WhatsApp o llamada telefónica para coordinar el método de pago y confirmar todos los detalles.",
+    "botonAceptar": "Entendido, ir al inicio"
   }
-},
-   "touresIslas":{
-    "top3islas": {
-    "title": "Top 3 Islas",
-    "description": "• Transporte marítimo: Traslado de ida y regreso en lancha rápida.\n• Recorrido turístico: Visita guiada a las 3 islas mencionadas.\n• Cóctel de bienvenida: Para empezar el día con el mejor sabor caribeño.\n• Almuerzo típico: Deliciosa gastronomía local incluida.\n• Tiempo libre: Espacio para disfrutar y relajarte en cada destino.\n• Asistencia permanente: Acompañamiento y soporte durante todo el recorrido."
-  },
-
-  "top4islas": {
-    "title": "Top 4 Islas",
-    "description": "• Transporte marítimo: Transporte en lancha rápida (ida y regreso).\n• Actividad dirigida: Snorkel guiado en arrecifes de coral.\n• Acompañamiento: Coordinador turístico dedicado durante todo el recorrido.\n• Gastronomía: Almuerzo típico de la región incluido.\n• Tiempo libre: Espacio dedicado para disfrutar y relajarte en cada isla.\n• Seguridad: Cobertura de asistencia médica durante la actividad."
-  },
-
-  "ancestral": {
-    "title": "Ancestral",
-    "description": "• Acceso premium: Ingreso completo a las instalaciones del hotel/lounge.\n• Gastronomía: Almuerzo típico caribeño incluido.\n• Bebida de cortesía: Un Welcome Drink (cóctel de bienvenida) al llegar.\n• Áreas húmedas: Uso y acceso a la piscina y zona de playa con acceso al mar.\n• Experiencia: Disfrute de un ambiente ancestral diseñado para la música y el descanso."
-  },
-
-  "palmerito": {
-    "title": "Palmerito",
-    "description": "• Transporte marítimo: Transporte en lancha rápida de ida y regreso.\n• Instalaciones: Uso de las instalaciones del lugar y áreas comunes.\n• Gastronomía tradicional: Almuerzo típico incluido (con opción de delicioso pescado frito).\n• Bebida de cortesía: Cóctel de bienvenida frutal para iniciar el día.\n• Seguridad: Tarjeta de asistencia médica incluida para tu tranquilidad."
-  },
-
-  "capribaru": {
-    "title": "CapriBarú",
-    "description": "• Transporte marítimo: Traslado en lancha rápida de ida y vuelta.\n• Instalaciones: Uso de las áreas sociales, zonas comunes y comodidades del lugar.\n• Gastronomía: Almuerzo típico tradicional (opción de delicioso pescado frito).\n• Bebida de cortesía: Cóctel de bienvenida frutal o refrescante.\n• Seguridad: Tarjeta de asistencia médica incluida durante el pasadía."
-  },
-
-  "fenix": {
-    "title": "Fénix ",
-    "description": "• Transporte marítimo: Cómodo traslado de ida y vuelta en lancha.\n• Gastronomía: Almuerzo típico tradicional incluido.\n• Instalaciones: Acceso y uso completo de las áreas del lugar.\n• Entretenimiento: Participación en actividades recreativas organizadas.\n• Experiencia: Disfrute de un excelente ambiente playero y diversión garantizada."
-  },
-
-  "ibbizabaru": {
-    "title": "IbbizaBarú",
-    "description": "• Transporte marítimo: Traslado en lancha rápida de ida y vuelta.\n• Instalaciones: Uso de las áreas sociales, zonas comunes y comodidades del lugar.\n• Gastronomía: Almuerzo típico tradicional (opción de delicioso pescado frito).\n• Bebida de cortesía: Cóctel de bienvenida frutal o refrescante.\n• Seguridad: Tarjeta de asistencia médica incluida durante el pasadía."
-  },
-
-  "mucura": {
-    "title": "Múcura",
-    "description": "• Transporte marítimo: Cómodo transporte de ida y vuelta en lancha.\n• Gastronomía: Almuerzo típico tradicional de la isla.\n• Comodidades de playa: Acceso directo a zona de playa y uso completo de las instalaciones del lugar.\n• Entretenimiento: Participación en actividades recreativas organizadas en el destino.\n• Seguridad: Cobertura con tarjeta de asistencia médica incluida."
-  },
-
-  "palma": {
-    "title": " Palma",
-    "description": "• Transporte marítimo: Cómodo traslado de ida y regreso en lancha.\n• Instalaciones: Uso completo de las instalaciones del destino.\n• Gastronomía: Almuerzo típico de la región incluido.\n• Bebida de cortesía: Un refrescante cóctel de bienvenida al llegar.\n• Seguridad: Cobertura con tarjeta de asistencia médica durante la actividad."
-  },
-
-  "rosariosencillo": {
-    "title": "RosarioSencillo",
-    "description": "• Transporte marítimo: Traslado de ida y regreso en lancha rápida.\n• Instalaciones: Acceso y uso completo de las instalaciones del lugar.\n• Gastronomía: Delicioso almuerzo típico de la región caribeña.\n• Actividades: Sesión de snorkel guiada (sujeto a disponibilidad).\n• Entorno: Disfrute total de un ambiente natural único y playas cristalinas."
-  },
-
-  "rosario": {
-    "title": "Rosario",
-    "description": "• Transporte marítimo: Cómodo traslado en lancha de ida y regreso.\n• Actividades guiadas: Sesión de snorkel para explorar arrecifes llenos de diversión.\n• Gastronomía local: Delicioso almuerzo típico de las islas.\n• Comodidades de playa: Uso directo de la zona de playa y áreas comunes del club.\n• Entorno natural: Disfrute total de playas paradisíacas en un ambiente natural único.\n• Seguridad: Cobertura con asistencia básica de salud incluida."
-  },
-
-  "sabai": {
-    "title": "Sabai",
-    "description": "• Entorno VIP: Acceso a un ambiente exclusivo diseñado para el máximo confort.\n• Experiencia gastronómica: Servicio completo de alta gastronomía y coctelería selecta.\n• Ambiente musical: Entretenimiento continuo con excelente música y buena vibra playera.\n• Ubicación privilegiada: Estadía directa frente al mar en una de las mejores zonas de Cartagena."
-  },
-
-  "encantobaru": {
-    "title": "Encanto",
-    "description": "• Transporte marítimo: Transporte de ida y regreso en lancha.\n• Comodidades de playa: Uso de las instalaciones del hotel y silla de playa.\n• Gastronomía: Delicioso almuerzo típico de la región.\n• Bebida de cortesía: Un refrescante Welcome Drink (bebida de bienvenida).\n• Actividades marítimas: Acceso a actividades acuáticas (sujeto a las condiciones del plan).\n• Seguridad: Servicio de asistencia médica incluido durante el pasadía."
-  },
-
-  "cocoliso": {
-    "title": "Cocoliso",
-    "description": "• Transporte marítimo: Traslado de ida y regreso en lancha rápida.\n• Instalaciones: Uso de las instalaciones y zonas comunes del lugar.\n• Gastronomía: Almuerzo tipo menú seleccionado.\n• Bebida de cortesía: Un cóctel de bienvenida al llegar.\n• Actividades: Práctica y actividades guiadas de snorkel.\n• Seguridad: Cobertura con tarjeta de asistencia médica."
-  },
-
-  "mangata": {
-    "title": "Mangata",
-    "description": "• Transporte marítimo: Traslado exclusivo de ida y regreso en lancha deportiva.\n• Acceso VIP: Ingreso a playa exclusiva y zonas VIP del club de playa.\n• Gastronomía a la carta: Almuerzo premium con platos seleccionados a la carta.\n• Entretenimiento: Ambiente caribeño amenizado con DJ en vivo y música tropical.\n• Actividades náuticas: Uso libre de kayaks, tablas de paddleboard y equipo de snorkel."
-  },
-
-  "luxury": {
-    "title": "Luxury",
-    "description": "• Acceso exclusivo: Ingreso completo a un club de playa con instalaciones premium.\n• Gastronomía gourmet: Almuerzo delicioso con opciones de menú típico o especial.\n• Bebida de cortesía: Cóctel de bienvenida especial para brindar por tu día.\n• Zonas de confort: Acceso total a piscina, playa y áreas de máximo confort y relajación."
-  }
- 
-},
-"reservas":{
-  "mensaje": "Hola, me gustaría recibir más información sobre el tour.",
-  "button" : "Elegir este plan"
-},
-"chivas":{
-  "description1":"•Recorridos panorámicos: Disfruta de las mejores vistas de la ciudad desde la comodidad de la chiva.\n •Conoce nuestra historia: Un viaje al pasado para descubrir los secretos de la ciudad amurallada.\n •Guías locales expertos: Acompañamiento por profesionales que conocen cada rincón.\n •Ambiente típico, alegre y seguro: La auténtica esencia caribeña con la tranquilidad que mereces.\n •Seguridad y comodidad: Vehículo acondicionado para que disfrutes sin preocupaciones.", 
-  "description2": "•Música a bordo: Éxitos del momento y clásicos infaltables para no parar de cantar.\n •Ambiente 100% rumbero: Una experiencia llena de alegría, baile y la mejor buena energía.\n •Recorridos nocturnos: Disfruta de las luces de la ciudad y conoce Cartagena como nunca antes.\n •Rutas por los mejores lugares: Recorrido planificado por la Ciudad Amurallada, la Bahía y más.\n •Diversión garantizada: Vive una experiencia única, alegre e inolvidable en tus vacaciones."
-},
-"oferta":{
-  "title": "¡Escápate al Caribe con HR Tours!"
-},
-"testimonios": {
-  "gisela": "La atención fue excelente y el guía hizo que la experiencia fuera inolvidable.",
-  "nathaniel": "Las islas son espectaculares. Todo estuvo muy bien organizado.",
-  "aliette": "Mi familia disfrutó muchísimo el recorrido.",
-  "florencia": "Una experiencia que repetiría sin pensarlo."
 }
-} 

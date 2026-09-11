@@ -1,1 +1,25 @@
 @import "tailwindcss";
+
+/* 1. Arreglo de Urban Jungle (cambió la ruta a ./fonts/) */
+@font-face {
+  font-family: 'UrbanJungle';
+  src: url('./fonts/Bulgia.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2. Nueva fuente Cómic Cartunia (.ttf) */
+@font-face {
+  font-family: 'ComicCartunia';
+  src: url('./fonts/ComicBookCartunia-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Registro de variables en Tailwind v4 */
+@theme {
+  --font-urban: 'UrbanJungle', sans-serif;
+  --font-comic: 'ComicCartunia', cursive, sans-serif;
+}

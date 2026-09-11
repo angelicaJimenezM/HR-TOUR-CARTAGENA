@@ -11,49 +11,36 @@ import { Top } from '../components/Top.jsx'
 import { Oferta } from '../components/Oferta.jsx'
 import { CategoriasTures } from '../components/CategoriasTures.jsx'
 import { Testimonios } from '../components/Testimonios.jsx';
+import { Elegirnos } from '../components/Elegirnos.jsx';
+import { Preguntas } from '../components/Preguntas.jsx';
+//import { Estadisticas } from '../components/Estadisticas.jsx';
+import fondo from '../assets/imagenes/portadas/hero/fondo.webp'
 
 
 export function Principal() {
-  
-
-const [t, i18n] = useTranslation("global")
-  // Función para scroll suave
-
-
-
-
-
   return (
-    <div className="bg-white min-h-screen">
-      {/* componente Header*/}
-      <Header/>
+    <div className="relative min-h-screen bg-white">
+      {/* 1. Capa de Imagen de Fondo con opacidad */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 pointer-events-none" 
+        style={{ backgroundImage: `url(${fondo})` }}
+      />
 
-      <main className='pt-16'>
-          <Oferta/>
-        {/* HERO CAROUSEL */}
-       <Hero />
-
-       
-       <Contacto/>
-
-
-      {/*seccion de top */}
-       <Top/>
-        {/* SECCIÓN DE TURES (GRID) */}
-      
-        <CategoriasTures/>
-      <Testimonios/>
-
-
-
-
-      </main>
-
-   
-      
-
-  {/* aqui comienza el footer, para que se dirijan a las redes sociales */}
-   <Footer/>
+      {/* 2. Contenido de la página (queda por encima de la imagen) */}
+      <div className="relative z-10">
+        <Header />
+        <main className="pt-16">
+          <Oferta />
+          <Hero />
+          <Elegirnos />
+          <Contacto />
+          <Top />
+          <CategoriasTures />
+          <Testimonios />
+          <Preguntas />
+        </main>
+        <Footer />
+      </div>
     </div>
-  )
+  );
 }
