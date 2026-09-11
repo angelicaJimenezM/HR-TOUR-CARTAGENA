@@ -10,7 +10,7 @@ import { BotonCompartir } from "../components/BotonCompartir";
 import fondo from '../assets/imagenes/portadas/hero/fondo.webp';
 import p_islas from "../assets/imagenes/portadas/hero/chiva.webp";
 
-const API = "http://127.0.0.1:8000";
+const API = import.meta.env.VITE_API_URL || "https://api.hrtourscartagena.com";
 
 const compartirTour = async (tour) => {
   try {

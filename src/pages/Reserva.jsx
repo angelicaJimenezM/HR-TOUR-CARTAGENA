@@ -6,7 +6,7 @@ import { Contacto } from "../components/Contacto";
 import { Footer } from "../components/Footer";
 import pincelazo from "../assets/imagenes/portadas/hero/pincelazo.webp";
 
-const API = "http://127.0.0.1:8000";
+const API = import.meta.env.VITE_API_URL || "https://api.hrtourscartagena.com";
 
 export function Reserva() {
     const location = useLocation();

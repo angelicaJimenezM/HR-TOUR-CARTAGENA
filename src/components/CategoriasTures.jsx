@@ -4,8 +4,8 @@ import { BotonCompartir } from './BotonCompartir';
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const API_URL = "http://127.0.0.1:8000/api/tours/"; 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = import.meta.env.VITE_API_URL || "https://api.hrtourscartagena.com";
+const API_URL = `${API_BASE}/api/tours/`;
 
 // Normalizador universal de rutas media
 const formatearUrlMedia = (urlMedia) => {
