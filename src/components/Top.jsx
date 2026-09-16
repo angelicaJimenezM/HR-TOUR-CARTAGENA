@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { BotonReservar } from './BotonReservar'
+import { BotonReservar } from './BotonReservar';
 import { BotonCompartir } from "./BotonCompartir";
 
-
-const API_URL = "http://127.0.0.1:8000/api/tours/";
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+const API_URL = `${API_BASE}/api/tours/`;
 
 // Normalizador universal de rutas media provenientes de la BD Django
 const formatearUrlMedia = (urlMedia) => {
@@ -17,7 +16,6 @@ const formatearUrlMedia = (urlMedia) => {
   }
   return `${API_BASE}/media/${urlMedia}`;
 };
-
 
 export function Top() {
   // 📌 Modifica aquí los IDs de los tours que quieres mostrar
@@ -52,8 +50,6 @@ export function Top() {
       });
   }, []);
 
- 
-
   const nextTopSlide = () => {
     if (toursBD.length === 0) return;
     setTopCurrent((prev) => (prev + 1) % toursBD.length);
@@ -81,7 +77,6 @@ export function Top() {
       <h1 className="text-2xl font-bold text-center text-[#123499]">
         {t("top.title")}
       </h1>
-     
 
       <div className="relative w-full h-[450px] flex items-center justify-center overflow-hidden">
         {toursBD.map((tour, index) => {
@@ -149,9 +144,6 @@ export function Top() {
             >
               <div className="absolute inset-0 bg-black/33" />
 
-              {/* FAVORITO */}
-       
-
               {/* PRECIO */}
               <div className="absolute top-4 right-4 bg-[#123499] border border-[#b38f4d] px-4 py-2 rounded-full shadow-lg z-10">
                 <p className="font-bold text-sm text-white">
@@ -162,7 +154,6 @@ export function Top() {
               <div className="relative z-10">
                 <h2 className="text-3xl font-bold">{titulo}</h2>
 
-                {/* 📌 DESCRIPCIÓN DEVUELTA AL CARRUSEL */}
                 <div className="mt-3 text-white text-left whitespace-pre-line leading-relaxed border-l-4 border-[#C5A059] pl-4 line-clamp-3 text-sm md:text-base">
                   {descripcion}
                 </div>
@@ -261,9 +252,8 @@ export function Top() {
 
                 {/* BOTONES */}
                 <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-                <BotonReservar tour={selectedFlyer}/>
-
-                  <BotonCompartir tour={selectedFlyer}/>
+                  <BotonReservar tour={selectedFlyer} />
+                  <BotonCompartir tour={selectedFlyer} />
                 </div>
               </div>
             </div>

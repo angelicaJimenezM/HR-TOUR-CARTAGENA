@@ -67,14 +67,14 @@ export function CategoriaCity() {
 
   const formatearUrlMedia = (urlMedia) => {
     if (!urlMedia) return "";
-    if (urlMedia.startsWith("http") || urlMedia.startsWith("/media/")) {
-      return urlMedia.startsWith("http") ? urlMedia : `${API}${urlMedia}`;
+    if (urlMedia.startsWith("http://") || urlMedia.startsWith("https://")) {
+      return urlMedia;
     }
-    return `${API}/media/${urlMedia}`;
+    return `${API}${urlMedia.startsWith('/') ? '' : '/'}${urlMedia}`;
   };
 
   return (
-    <div className="relative min-h-screen bg-white" >
+    <div className="relative min-h-screen bg-white">
       {/* CAPA DE FONDO CON OPACIDAD (Independiente del resto de la página) */}
       <div 
         className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none z-0" 
@@ -82,7 +82,7 @@ export function CategoriaCity() {
       />
 
       {/* CONTENIDO PRINCIPAL (Con z-10 para asegurar que quede nítido encima del fondo) */}
-      <div className="relative z-10 flex flex-col min-h-screen " >
+      <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
 
         <main className="flex-grow">
@@ -90,8 +90,6 @@ export function CategoriaCity() {
 
           {/* HERO */}
           <div className="relative w-full h-[80vh] sm:h-[100vh] overflow-hidden">
-           
-
             <motion.img
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -100,8 +98,6 @@ export function CategoriaCity() {
               className="absolute inset-0 w-full h-full object-cover"
               alt="Hero Islas"
             />
-
-           
 
             <div className="relative z-10 flex items-center justify-center h-full flex-col">
               <h1 className="text-[#ffffffe8] text-5xl md:text-7xl font-black text-center">
@@ -144,6 +140,11 @@ export function CategoriaCity() {
                         src={formatearUrlMedia(tour.imagen_portada)}
                         alt={tour.titulo_es}
                         className="w-full h-full object-cover hover:scale-105 transition duration-500"
+                        onError={(e) => {
+                          if (tour.imagen_portada && !e.target.src.endsWith(tour.imagen_portada)) {
+                            e.target.src = tour.imagen_portada;
+                          }
+                        }}
                       />
 
                       <button
@@ -157,7 +158,7 @@ export function CategoriaCity() {
                         )}  
                       </button>
 
-                      <div className="absolute top-4 right-4 bg-[#339259] border border-[#ffffff]  text-white px-3 py-1 rounded-full text-xs font-bold shadow-md z-10">
+                      <div className="absolute top-4 right-4 bg-[#339259] border border-[#ffffff] text-white px-3 py-1 rounded-full text-xs font-bold shadow-md z-10">
                         ${precioAdulto.toLocaleString("es-CO")} COP
                       </div>
                     </div>
@@ -214,11 +215,11 @@ export function CategoriaCity() {
 
                     <div className="text-center my-6 bg-blue-50/50 p-4 rounded-xl max-w-md mx-auto border border-blue-100 shadow-sm">
                       <p className="text-sm font-semibold text-gray-700">
-                        {t("reservas.tarifaAdulto")} <span className="text-[#123499] font-bold">${precioAdulto.toLocaleString("es-CO")} COP</span>
+                        {t("reservas.tarifaAdulto")}: <span className="text-[#123499] font-bold">${precioAdulto.toLocaleString("es-CO")} COP</span>
                       </p>
                       {tieneDescuentoNino ? (
                         <p className="text-sm font-semibold text-gray-700 mt-1">
-                          {t("reservas.tarifaNiños")} ({selectedTour.rango_edad_nino || "Niños"}): <span className="text-[#123499] font-bold">${precioNinoEspecial.toLocaleString("es-CO")} COP</span>
+                          {t("reservas.tarifaNiños") || t("reservas.tarifaAdulto")} ({selectedTour.rango_edad_nino || "Niños"}): <span className="text-[#123499] font-bold">${precioNinoEspecial.toLocaleString("es-CO")} COP</span>
                         </p>
                       ) : (
                         <p className="text-xs text-gray-500 mt-1 italic">

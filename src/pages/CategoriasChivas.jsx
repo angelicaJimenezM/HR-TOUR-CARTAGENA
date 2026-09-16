@@ -67,10 +67,10 @@ export function CategoriasChivas() {
 
   const formatearUrlMedia = (urlMedia) => {
     if (!urlMedia) return "";
-    if (urlMedia.startsWith("http") || urlMedia.startsWith("/media/")) {
-      return urlMedia.startsWith("http") ? urlMedia : `${API}${urlMedia}`;
+    if (urlMedia.startsWith("http://") || urlMedia.startsWith("https://")) {
+      return urlMedia;
     }
-    return `${API}/media/${urlMedia}`;
+    return `${API}${urlMedia.startsWith('/') ? '' : '/'}${urlMedia}`;
   };
 
   return (
@@ -90,18 +90,14 @@ export function CategoriasChivas() {
 
           {/* HERO */}
           <div className="relative w-full h-[80vh] sm:h-[100vh] overflow-hidden">
-           
-
             <motion.img
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 2.9 }}
               src={p_islas}
               className="absolute inset-0 w-full h-full object-cover"
-              alt="Hero Islas"
+              alt="Hero Chivas"
             />
-
-           
 
             <div className="relative z-10 flex items-center justify-center h-full flex-col">
               <h1 className="text-[#ffffffe8] text-5xl md:text-7xl font-black text-center">
@@ -128,7 +124,7 @@ export function CategoriasChivas() {
 
             {toursIslas.length === 0 ? (
               <p className="col-span-full text-center text-gray-400 py-10">
-                No se encontraron tours para la categoría "islas".
+                No se encontraron tours para la categoría "chivas".
               </p>
             ) : (
               toursIslas.map((tour) => {
@@ -144,6 +140,11 @@ export function CategoriasChivas() {
                         src={formatearUrlMedia(tour.imagen_portada)}
                         alt={tour.titulo_es}
                         className="w-full h-full object-cover hover:scale-105 transition duration-500"
+                        onError={(e) => {
+                          if (tour.imagen_portada && !e.target.src.endsWith(tour.imagen_portada)) {
+                            e.target.src = tour.imagen_portada;
+                          }
+                        }}
                       />
 
                       <button

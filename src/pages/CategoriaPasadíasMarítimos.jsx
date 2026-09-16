@@ -67,32 +67,29 @@ export function CategoriaPasadíasMarítimos() {
 
   const formatearUrlMedia = (urlMedia) => {
     if (!urlMedia) return "";
-    if (urlMedia.startsWith("http") || urlMedia.startsWith("/media/")) {
-      return urlMedia.startsWith("http") ? urlMedia : `${API}${urlMedia}`;
+    if (urlMedia.startsWith("http://") || urlMedia.startsWith("https://")) {
+      return urlMedia;
     }
-    return `${API}/media/${urlMedia}`;
+    return `${API}${urlMedia.startsWith('/') ? '' : '/'}${urlMedia}`;
   };
 
   return (
     <div className="relative min-h-screen bg-white">
       {/* CAPA DE FONDO CON OPACIDAD (Independiente del resto de la página) */}
-      
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none z-0" 
+        style={{ backgroundImage: `url(${fondo})` }}
+      />
 
       {/* CONTENIDO PRINCIPAL (Con z-10 para asegurar que quede nítido encima del fondo) */}
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
 
         <main className="flex-grow">
-       <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none z-0" 
-        style={{ backgroundImage: `url(${fondo})` }}
-      />
           <Contacto />
 
           {/* HERO */}
           <div className="relative w-full h-[80vh] sm:h-[100vh] overflow-hidden">
-           
-
             <motion.img
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -101,8 +98,6 @@ export function CategoriaPasadíasMarítimos() {
               className="absolute inset-0 w-full h-full object-cover"
               alt="Hero Islas"
             />
-
-           
 
             <div className="relative z-10 flex items-center justify-center h-full flex-col">
               <h1 className="text-[#ffffffe8] text-5xl md:text-7xl font-black text-center">
@@ -123,7 +118,6 @@ export function CategoriaPasadíasMarítimos() {
 
           {/* LISTADO DE TOURS */}
           <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 p-5">
-            
             <p className="col-span-full text-center text-gray-600 font-medium">
               ❤️ {favoritos.length} favoritos guardados
             </p>
@@ -146,6 +140,11 @@ export function CategoriaPasadíasMarítimos() {
                         src={formatearUrlMedia(tour.imagen_portada)}
                         alt={tour.titulo_es}
                         className="w-full h-full object-cover hover:scale-105 transition duration-500"
+                        onError={(e) => {
+                          if (tour.imagen_portada && !e.target.src.endsWith(tour.imagen_portada)) {
+                            e.target.src = tour.imagen_portada;
+                          }
+                        }}
                       />
 
                       <button
@@ -220,7 +219,7 @@ export function CategoriaPasadíasMarítimos() {
                       </p>
                       {tieneDescuentoNino ? (
                         <p className="text-sm font-semibold text-gray-700 mt-1">
-                          {t("reservas.tarifaNiños")}({selectedTour.rango_edad_nino || "Niños"}): <span className="text-[#123499] font-bold">${precioNinoEspecial.toLocaleString("es-CO")} COP</span>
+                          {t("reservas.tarifaNiños")} ({selectedTour.rango_edad_nino || "Niños"}): <span className="text-[#123499] font-bold">${precioNinoEspecial.toLocaleString("es-CO")} COP</span>
                         </p>
                       ) : (
                         <p className="text-xs text-gray-500 mt-1 italic">

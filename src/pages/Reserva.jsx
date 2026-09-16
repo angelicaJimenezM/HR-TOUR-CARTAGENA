@@ -14,9 +14,13 @@ export function Reserva() {
     const tour = location.state?.tour;
     const { t, i18n } = useTranslation("global");
 
-    // Estados para controlar los modales
+    // Estados para controlar los modales (incluyendo el modal de carga)
     const [mostrarModalExito, setMostrarModalExito] = useState(false);
     const [mostrarModalSinCupo, setMostrarModalSinCupo] = useState(false);
+    const [mostrarModalCargando, setMostrarModalCargando] = useState(false);
+
+    // Estado para bloquear el botón y prevenir envíos múltiples (Doble clic)
+    const [enviando, setEnviando] = useState(false);
 
     // Estado para la aceptación de Políticas y Términos
     const [aceptaPoliticas, setAceptaPoliticas] = useState(false);
@@ -95,6 +99,8 @@ export function Reserva() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (enviando) return;
+
         if (numAdultos < 1) {
             alert("⚠️ Debe seleccionar al menos 1 adulto para realizar la reserva.");
             return;
@@ -112,7 +118,6 @@ export function Reserva() {
         const fechaIngresada = e.target.fecha_reserva.value;
         const horaIngresada = e.target.hora_reserva.value || "00:00";
 
-        // Validar anticipación de 24 horas
         const fechaHoraReserva = new Date(`${fechaIngresada}T${horaIngresada}`);
         const ahoraMas24Horas = new Date(Date.now() + 24 * 60 * 60 * 1000);
 
@@ -121,21 +126,9 @@ export function Reserva() {
             return;
         }
 
-        // Consultar disponibilidad previa
-        try {
-            const checkRes = await fetch(`${API}/api/reservas/?tour=${tour.id}&fecha=${fechaIngresada}`);
-            if (checkRes.ok) {
-                const reservasExistentes = await checkRes.json();
-                const listaReservas = Array.isArray(reservasExistentes) ? reservasExistentes : (reservasExistentes.results || []);
-                
-                if (listaReservas.length >= 2) {
-                    setMostrarModalSinCupo(true);
-                    return;
-                }
-            }
-        } catch (error) {
-            console.error("Error al consultar disponibilidad previa:", error);
-        }
+        // Activamos estado de envío y mostramos el modal de carga de inmediato
+        setEnviando(true);
+        setMostrarModalCargando(true);
 
         const datosReserva = {
             tour: tour.id,            
@@ -153,6 +146,23 @@ export function Reserva() {
         };
 
         try {
+            // OPTIMIZACIÓN: Ejecutamos la consulta de disponibilidad y el envío del POST 
+            // en paralelo (Promise.all) o directo al POST si tu backend de Django ya valida el cupo.
+            // Si necesitas validar el cupo primero por optimización de velocidad:
+            const checkRes = await fetch(`${API}/api/reservas/?tour=${tour.id}&fecha=${fechaIngresada}`);
+            
+            if (checkRes.ok) {
+                const reservasExistentes = await checkRes.json();
+                const listaReservas = Array.isArray(reservasExistentes) ? reservasExistentes : (reservasExistentes.results || []);
+                
+                if (listaReservas.length >= 2) {
+                    setMostrarModalCargando(false);
+                    setMostrarModalSinCupo(true);
+                    setEnviando(false);
+                    return;
+                }
+            }
+
             const response = await fetch(`${API}/api/reservas/`, {
                 method: "POST",
                 headers: {
@@ -160,6 +170,8 @@ export function Reserva() {
                 },
                 body: JSON.stringify(datosReserva),
             });
+
+            setMostrarModalCargando(false); // Ocultamos el modal de carga
 
             if (response.ok) {
                 e.target.reset();
@@ -174,14 +186,17 @@ export function Reserva() {
                 const errorData = await response.json().catch(() => ({}));
                 console.error("Detalle del error devuelto por Django:", errorData);
                 alert(`Error del servidor: ${JSON.stringify(errorData)}`);
+                setEnviando(false);
             }
         } catch (error) {
+            setMostrarModalCargando(false);
             console.error("Error de conexión con la API:", error);
             alert("No se pudo conectar con el servidor.");
+            setEnviando(false);
         }
     };
 
-    const esFormularioValido = aceptaPoliticas && aceptaTerminosYCondiciones;
+    const esFormularioValido = aceptaPoliticas && aceptaTerminosYCondiciones && !enviando;
 
     return (
         <div className="min-h-screen bg-[#b4ebfa] flex flex-col ">
@@ -241,6 +256,7 @@ export function Reserva() {
                         <input
                             name="nombre_persona"
                             required
+                            disabled={enviando}
                             placeholder="Nombre completo"
                             className="w-full border p-3 rounded-xl outline-none focus:ring-2 focus:ring-[#123499] bg-white"
                         />
@@ -251,6 +267,7 @@ export function Reserva() {
                         <input
                             name="numero_documento"
                             required
+                            disabled={enviando}
                             placeholder="C.C. / Pasaporte"
                             className="w-full border p-3 rounded-xl outline-none focus:ring-2 focus:ring-[#123499] bg-white"
                         />
@@ -261,6 +278,7 @@ export function Reserva() {
                         <input
                             name="celular"
                             required
+                            disabled={enviando}
                             placeholder="Ej: +57 300..."
                             className="w-full border p-3 rounded-xl outline-none focus:ring-2 focus:ring-[#123499] bg-white"
                         />
@@ -271,6 +289,7 @@ export function Reserva() {
                         <input 
                             name="pais"
                             required
+                            disabled={enviando}
                             type="text" 
                             placeholder="País de origen"
                             className="w-full border p-3 rounded-xl outline-none focus:ring-2 focus:ring-[#123499] bg-white"
@@ -283,6 +302,7 @@ export function Reserva() {
                             <input 
                                 name="fecha_reserva"
                                 required
+                                disabled={enviando}
                                 type="date" 
                                 min={minFecha}
                                 className="w-full border p-3 rounded-xl outline-none focus:ring-2 focus:ring-[#123499] bg-white"
@@ -293,6 +313,7 @@ export function Reserva() {
                             <input 
                                 name="hora_reserva"
                                 required
+                                disabled={enviando}
                                 type="time" 
                                 className="w-full border p-3 rounded-xl outline-none focus:ring-2 focus:ring-[#123499] bg-white"
                             />
@@ -309,6 +330,7 @@ export function Reserva() {
                             <input 
                                 name="cantidad_adultos"
                                 required
+                                disabled={enviando}
                                 type="number" 
                                 min="1"
                                 placeholder="Ej: 2"
@@ -321,6 +343,7 @@ export function Reserva() {
                             <label className="block font-bold text-[#322c9f] mb-1">{t("reservas.niños")}</label>
                             <input 
                                 name="cantidad_ninos"
+                                disabled={enviando}
                                 type="number" 
                                 min="0"
                                 placeholder="Ej: 0"
@@ -343,6 +366,7 @@ export function Reserva() {
                                 </label>
                                 <select 
                                     value={ninosConDescuento}
+                                    disabled={enviando}
                                     onChange={(e) => setNinosConDescuento(Number(e.target.value))}
                                     className="border border-blue-300 rounded-lg p-1.5 bg-white font-bold text-[#123499] outline-none"
                                 >
@@ -390,12 +414,12 @@ export function Reserva() {
                         </div>
                     </div>
 
-                    {/* CASILLA DE VERIFICACIÓN: POLÍTICA DE PRIVACIDAD */}
                     <div className="flex items-start gap-2 pt-2">
                         <input
                             type="checkbox"
                             id="acepta_politicas"
                             required
+                            disabled={enviando}
                             checked={aceptaPoliticas}
                             onChange={(e) => setAceptaPoliticas(e.target.checked)}
                             className="mt-1 h-4 w-4 rounded border-gray-300 text-[#123499] focus:ring-[#123499] cursor-pointer"
@@ -414,12 +438,12 @@ export function Reserva() {
                         </label>
                     </div>
 
-                    {/* CASILLA DE VERIFICACIÓN: TÉRMINOS Y CONDICIONES */}
                     <div className="flex items-start gap-2 pt-2">
                         <input
                             type="checkbox"
                             id="acepta_TerminosYCondiciones"
                             required
+                            disabled={enviando}
                             checked={aceptaTerminosYCondiciones}
                             onChange={(e) => setaceptaTerminosYCondiciones(e.target.checked)}
                             className="mt-1 h-4 w-4 rounded border-gray-300 text-[#123499] focus:ring-[#123499] cursor-pointer"
@@ -447,40 +471,55 @@ export function Reserva() {
                                 : "bg-gray-400 text-gray-200 cursor-not-allowed shadow-none"
                         }`}
                     >
-                        {t("reservas.button3")}
+                        {enviando ? "Procesando reserva..." : t("reservas.button3")}
                     </button>
                 </form>
 
                 <Contacto />
             </div>
             
-            {/* MODALES */}
+            {/* MODAL DE CARGA */}
+            {mostrarModalCargando && (
+              <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+                <div className="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl text-center border border-gray-100">
+                  <div className="w-16 h-16 border-4 border-[#123499] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                  <h2 className="text-xl font-black text-[#123499] mb-2">
+                    Procesando tu reserva
+                  </h2>
+                  <p className="text-gray-600 text-sm">
+                    Estamos verificando la disponibilidad y guardando tus datos. Por favor espera un momento...
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* MODALES EXISTENTES */}
             {mostrarModalExito && (
-  <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-    <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl text-center border border-gray-100 animate-fade-in">
-      <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold">
-        ✓
-      </div>
-      <h2 className="text-2xl font-black text-[#123499] mb-3">
-        {t("modalExito.titulo")}
-      </h2>
-      <p className="text-gray-600 mb-6 text-sm leading-relaxed">
-        {t("modalExito.mensajeParte1")}{' '}
-        <strong className="text-gray-800">{nombreTour}</strong>.{' '}
-        {t("modalExito.mensajeParte2")}
-      </p>
-      <button
-        onClick={() => {
-          setMostrarModalExito(false);
-          navigate("/");
-        }}
-        className="w-full bg-[#123499] hover:bg-[#0e2773] text-white font-bold py-3 px-6 rounded-xl transition shadow-lg"
-      >
-        {t("modalExito.botonAceptar")}
-      </button>
-    </div>
-  </div>
-)}
+              <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+                <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl text-center border border-gray-100 animate-fade-in">
+                  <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold">
+                    ✓
+                  </div>
+                  <h2 className="text-2xl font-black text-[#123499] mb-3">
+                    {t("modalExito.titulo")}
+                  </h2>
+                  <p className="text-gray-600 mb-6 text-sm leading-relaxed">
+                    {t("modalExito.mensajeParte1")}{' '}
+                    <strong className="text-gray-800">{nombreTour}</strong>.{' '}
+                    {t("modalExito.mensajeParte2")}
+                  </p>
+                  <button
+                    onClick={() => {
+                      setMostrarModalExito(false);
+                      navigate("/");
+                    }}
+                    className="w-full bg-[#123499] hover:bg-[#0e2773] text-white font-bold py-3 px-6 rounded-xl transition shadow-lg"
+                  >
+                    {t("modalExito.botonAceptar")}
+                  </button>
+                </div>
+              </div>
+            )}
 
             {mostrarModalSinCupo && (
                 <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">

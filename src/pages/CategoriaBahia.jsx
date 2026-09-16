@@ -30,7 +30,7 @@ const compartirTour = async (tour) => {
 };
 
 export function CategoriaBahia() {
-  const [toursIslas, setToursIslas] = useState([]);
+  const [toursBahia, setToursBahia] = useState([]);
   const { t, i18n } = useTranslation("global");
   const [selectedTour, setSelectedTour] = useState(null);
 
@@ -40,11 +40,11 @@ export function CategoriaBahia() {
       .then(data => {
         const toursRaw = Array.isArray(data) ? data : (data.results || []);
 
-        const islasTours = toursRaw.filter(
+        const bahiaTours = toursRaw.filter(
           tour => tour.categoria && tour.categoria.toString().toUpperCase() === "TOURS_BAHIA"
         );
 
-        setToursIslas(islasTours);
+        setToursBahia(bahiaTours);
       })
       .catch(err =>
         console.error("Error cargando los tours:", err)
@@ -98,7 +98,7 @@ export function CategoriaBahia() {
               transition={{ duration: 2.9 }}
               src={p_islas}
               className="absolute inset-0 w-full h-full object-cover"
-              alt="Hero Islas"
+              alt="Hero Tour Bahia"
             />
 
            
@@ -126,12 +126,12 @@ export function CategoriaBahia() {
               ❤️ {favoritos.length} favoritos guardados
             </p>
 
-            {toursIslas.length === 0 ? (
+            {toursBahia.length === 0 ? (
               <p className="col-span-full text-center text-gray-400 py-10">
-                No se encontraron tours para la categoría "islas".
+                No se encontraron tours para la categoría "Tour Bahia".
               </p>
             ) : (
-              toursIslas.map((tour) => {
+              toursBahia.map((tour) => {
                 const precioAdulto = Number(tour.precio_adulto || tour.precio || 0);
 
                 return (
