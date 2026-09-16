@@ -8,18 +8,15 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # =========================================================
-# SEGURIDAD - usar variables de entorno en producción
+# SEGURIDAD - Clave Secreta y Modo Debug
 # =========================================================
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-if not SECRET_KEY:
-    raise ValueError("Debes definir DJANGO_SECRET_KEY como variable de entorno")
-
-# En producción SIEMPRE False
-DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-ppzn%uxcb+jmt^roka29e8%b38yi)s%_q%2um6mdl+s$ozf!au')
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = [
     "api.hrtourscartagena.com",
-    # agrega la IP de tu VPS si la necesitas, ej: "123.45.67.89"
+    "localhost",
+    "127.0.0.1",
 ]
 
 # Application definition
@@ -39,7 +36,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',  # debe ir de primero, antes de CommonMiddleware
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,6 +50,7 @@ ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
+        # CORREGIDO: Se agregó '.django.' antes de DjangoTemplates
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
         'APP_DIRS': True,
@@ -67,30 +65,26 @@ TEMPLATES = [
 ]
 
 # =========================================================
-# CORS - solo estos orígenes pueden llamar a la API
+# CORS - Orígenes permitidos
 # =========================================================
 CORS_ALLOWED_ORIGINS = [
     "https://hrtourscartagena.com",
     "https://www.hrtourscartagena.com",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
 ]
-
-# Si más adelante ves errores 403 CSRF en POST desde el frontend, descomenta esto:
-# CSRF_TRUSTED_ORIGINS = [
-#     "https://hrtourscartagena.com",
-#     "https://www.hrtourscartagena.com",
-# ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
 # =========================================================
-# Base de datos - usar variables de entorno
+# Base de Datos (MySQL)
 # =========================================================
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": os.environ.get('DB_NAME', 'hr_tours'),
         "USER": os.environ.get('DB_USER', 'root'),
-        "PASSWORD": os.environ.get('DB_PASSWORD', ''),
+        "PASSWORD": os.environ.get('DB_PASSWORD', 'angelica'),
         "HOST": os.environ.get('DB_HOST', 'localhost'),
         "PORT": os.environ.get('DB_PORT', '3306'),
     }
@@ -105,8 +99,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'es-co'
+TIME_ZONE = 'America/Bogota'
 USE_I18N = True
 USE_TZ = True
 
@@ -118,12 +112,13 @@ MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # =========================================================
-# Correo - usar variables de entorno
+# Correo Electrónico SMTP (Gmail)
 # =========================================================
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'paginahrtours@gmail.com')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'azal zpvc xafa ekzl')
 DEFAULT_FROM_EMAIL = 'HR Tours <hrtourscartagena@gmail.com>'
+EMAIL_TIMEOUT = 5

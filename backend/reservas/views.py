@@ -1,3 +1,4 @@
+import threading
 from django.core.mail import send_mail
 from django.conf import settings
 from rest_framework import viewsets
@@ -21,7 +22,7 @@ class ReservaViewSet(viewsets.ModelViewSet):
         return queryset
 
     def perform_create(self, serializer):
-        # 1. Guarda la reserva en la base de datos
+        # 1. Guarda la reserva en la base de datos de forma inmediata
         reserva = serializer.save()
 
         # 2. Extraer datos de la reserva guardada
@@ -61,16 +62,21 @@ class ReservaViewSet(viewsets.ModelViewSet):
             f"Por favor contactar al cliente para confirmar y validar el pago."
         )
 
-        correo_administrador = "hrtourscartagena@gmail.com" # Correo donde quieres recibir la alerta
+        correo_administrador = "hrtourscartagena@gmail.com"
 
-        # 4. Enviar correo de manera segura (fail_silently evita que falle la API si falla el correo)
-        try:
-            send_mail(
-                subject=asunto,
-                message=mensaje_cuerpo,
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[correo_administrador],
-                fail_silently=True
-            )
-        except Exception as e:
-            print("Error al enviar la notificación por correo:", e)
+        # 4. Función interna para enviar el correo en segundo plano
+        def enviar_correo_background():
+            try:
+                send_mail(
+                    subject=asunto,
+                    message=mensaje_cuerpo,
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    recipient_list=[correo_administrador],
+                    fail_silently=True
+                )
+            except Exception as e:
+                print("Error al enviar la notificación por correo en segundo plano:", e)
+
+        # 5. Ejecutar el envío de correo en un hilo independiente (Thread)
+        hilo_correo = threading.Thread(target=enviar_correo_background)
+        hilo_correo.start()
